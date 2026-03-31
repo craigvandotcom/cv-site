@@ -10,9 +10,9 @@ const url = 'https://craigvan.com'
   <main class="mx-auto max-w-2xl px-6 py-24 md:py-32">
 
     <!-- Hero -->
-    <section class="mb-24">
-      <p class="mb-6 font-mono text-xs tracking-widest text-muted uppercase">eat. move. meditate.</p>
-      <h1 class="mb-6 text-3xl font-light leading-tight text-accent md:text-4xl">
+    <section class="mb-28 animate-fade-up">
+      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">eat · move · meditate</p>
+      <h1 class="mb-8 text-3xl font-light leading-[1.3] tracking-tight text-accent md:text-[2.75rem] md:leading-[1.2]">
         I'm an engineer who got obsessed with<br class="hidden md:inline" /> how the human body actually works.
       </h1>
       <p class="max-w-lg text-lg leading-relaxed text-muted">
@@ -23,9 +23,9 @@ const url = 'https://craigvan.com'
     </section>
 
     <!-- About -->
-    <section class="mb-24">
-      <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">About</h2>
-      <div class="space-y-4 text-fg/80 leading-relaxed">
+    <section class="mb-28 animate-fade-up delay-1">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">About</h2>
+      <div class="space-y-4 text-fg/80 leading-[1.8]">
         <p>
           I'm Craig — based in Europe, background in engineering.
           I spent years reverse-engineering how eating, moving, and stillness
@@ -40,9 +40,9 @@ const url = 'https://craigvan.com'
     </section>
 
     <!-- Newsletter -->
-    <section class="mb-24">
-      <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">Weekly cast</h2>
-      <p class="mb-6 text-fg/80 leading-relaxed">
+    <section class="mb-28 animate-fade-up delay-2">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Weekly cast</h2>
+      <p class="mb-8 text-fg/80 leading-[1.8]">
         One email a week exploring one idea — how to eat, move, or think better.
         Short, useful, no upsells.
       </p>
@@ -51,11 +51,11 @@ const url = 'https://craigvan.com'
           type="email"
           placeholder="your@email.com"
           required
-          class="flex-1 rounded-none border border-border bg-transparent px-4 py-3 text-sm text-fg placeholder:text-muted focus:border-accent focus:outline-none"
+          class="flex-1 rounded-md border border-border bg-transparent px-4 py-3 text-sm text-fg placeholder:text-muted/60 transition-all duration-300 focus:border-accent focus:outline-none"
         />
         <button
           type="submit"
-          class="border border-accent bg-accent px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-transparent hover:text-accent"
+          class="btn-shine rounded-md border border-accent bg-accent px-8 py-3 text-sm font-medium text-bg transition-all duration-300 hover:bg-transparent hover:text-accent"
         >
           Subscribe
         </button>
@@ -63,27 +63,37 @@ const url = 'https://craigvan.com'
     </section>
 
     <!-- Projects -->
-    <section class="mb-24">
-      <h2 class="mb-6 font-mono text-xs tracking-widest text-muted uppercase">Projects</h2>
-      <div class="space-y-6">
-        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
-          <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Body Compass</h3>
-          <p class="text-sm text-muted">A free health assessment that builds you a personalised 30-day plan.</p>
+    <section class="mb-28 animate-fade-up delay-3">
+      <h2 class="mb-8 font-mono text-xs tracking-[0.25em] text-muted uppercase">Projects</h2>
+      <div class="space-y-4">
+        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="card-glow group block rounded-lg border border-border p-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="mb-2 text-sm font-medium text-accent">Body Compass</h3>
+              <p class="text-sm leading-relaxed text-muted">A free health assessment that builds you a personalised 30-day plan.</p>
+            </div>
+            <span class="text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&#8599;</span>
+          </div>
         </a>
-        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
-          <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Unsit Your Back</h3>
-          <p class="text-sm text-muted">A 12-week programme to fix your back. No equipment, no guesswork.</p>
+        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="card-glow group block rounded-lg border border-border p-6">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="mb-2 text-sm font-medium text-accent">Unsit Your Back</h3>
+              <p class="text-sm leading-relaxed text-muted">A 12-week programme to fix your back. No equipment, no guesswork.</p>
+            </div>
+            <span class="text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&#8599;</span>
+          </div>
         </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-border pt-8">
+    <footer class="animate-fade-up delay-4 border-t section-fade pt-10">
       <div class="flex items-center justify-between text-xs text-muted">
         <span>&copy; {new Date().getFullYear()} Craig Van</span>
-        <div class="flex gap-4">
-          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="transition-colors hover:text-accent">X</a>
-          <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="transition-colors hover:text-accent">GitHub</a>
+        <div class="flex gap-6">
+          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">X</a>
+          <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">GitHub</a>
         </div>
       </div>
     </footer>
