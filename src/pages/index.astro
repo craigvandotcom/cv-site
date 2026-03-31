@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout>
+  <main class="mx-auto max-w-2xl px-6 py-24 md:py-32">
+
+    <!-- Hero -->
+    <section class="mb-24">
+      <p class="mb-6 font-mono text-xs tracking-widest text-muted uppercase">eat. move. meditate.</p>
+      <h1 class="mb-6 text-3xl font-light leading-tight text-accent md:text-4xl">
+        I'm an engineer who got obsessed with<br class="hidden md:inline" /> how the human body actually works.
+      </h1>
+      <p class="max-w-lg text-lg leading-relaxed text-muted">
+        Turns out, most health advice is noise. So I built systems instead.
+        Things I use every day. Things that compound. Now I share what works.
+      </p>
+    </section>
+
+    <!-- About -->
+    <section class="mb-24">
+      <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">About</h2>
+      <div class="space-y-4 text-fg/80 leading-relaxed">
+        <p>
+          I'm Craig Van — a health systems engineer based in Europe.
+          I spent years pulling apart the mechanics of eating, moving, and thinking clearly,
+          then rebuilding them as repeatable systems.
+        </p>
+        <p>
+          Not hacks. Not motivation. Just honest frameworks
+          that work whether you're feeling inspired or not.
+        </p>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="mb-24">
+      <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">Weekly cast</h2>
+      <p class="mb-6 text-fg/80 leading-relaxed">
+        One email a week. One idea worth your time. No fluff, no upsells —
+        just clear thinking on how to eat, move, and think better.
+      </p>
+      <form class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          required
+          class="flex-1 rounded-none border border-border bg-transparent px-4 py-3 text-sm text-fg placeholder:text-muted focus:border-accent focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="border border-accent bg-accent px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-transparent hover:text-accent"
+        >
+          Subscribe
+        </button>
+      </form>
+      <p class="mt-3 text-xs text-muted">
+        Join 1,000+ people who are done guessing about their health.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section class="mb-24">
+      <h2 class="mb-6 font-mono text-xs tracking-widest text-muted uppercase">Projects</h2>
+      <div class="space-y-6">
+        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
+          <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Body Compass</h3>
+          <p class="text-sm text-muted">Personalised health assessments. Data in, plan out.</p>
+        </a>
+        <a href="#" class="group block border border-border p-5 transition-colors hover:border-muted">
+          <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Unsit Your Back</h3>
+          <p class="text-sm text-muted">A 12-week system to fix your back. No equipment, no guesswork.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="mb-24 border-l border-border pl-6">
+      <blockquote class="text-fg/70 italic leading-relaxed">
+        "I would not have been able to achieve this in such a short period of time
+        if it were not for your program."
+      </blockquote>
+      <p class="mt-3 font-mono text-xs text-muted">— Matt</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-border pt-8">
+      <div class="flex items-center justify-between text-xs text-muted">
+        <span>&copy; {new Date().getFullYear()} Craig Van</span>
+        <div class="flex gap-4">
+          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="transition-colors hover:text-accent">X</a>
+          <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="transition-colors hover:text-accent">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
