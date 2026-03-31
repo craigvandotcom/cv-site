@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+const title = 'Craig Van'
+const description = 'Engineer turned health obsessive. Building systems for eating, moving, and thinking clearly.'
+const url = 'https://craigvan.com'
 ---
 
-<Layout>
+<Layout title={title} description={description}>
   <main class="mx-auto max-w-2xl px-6 py-24 md:py-32">
 
     <!-- Hero -->
@@ -12,8 +16,9 @@ import Layout from '../layouts/Layout.astro'
         I'm an engineer who got obsessed with<br class="hidden md:inline" /> how the human body actually works.
       </h1>
       <p class="max-w-lg text-lg leading-relaxed text-muted">
-        Turns out, most health advice is noise. So I built systems instead.
-        Things I use every day. Things that compound. Now I share what works.
+        Most health advice is noise. So I built systems instead —
+        things I use every day, things that compound.
+        Now I share what works.
       </p>
     </section>
 
@@ -22,13 +27,14 @@ import Layout from '../layouts/Layout.astro'
       <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">About</h2>
       <div class="space-y-4 text-fg/80 leading-relaxed">
         <p>
-          I'm Craig Van — a health systems engineer based in Europe.
-          I spent years pulling apart the mechanics of eating, moving, and thinking clearly,
-          then rebuilding them as repeatable systems.
+          I'm Craig — based in Europe, background in engineering.
+          I spent years reverse-engineering how eating, moving, and stillness
+          actually affect the body, then turned what I found into frameworks
+          anyone can use.
         </p>
         <p>
-          Not hacks. Not motivation. Just honest frameworks
-          that work whether you're feeling inspired or not.
+          No hacks, no motivation required. Just honest systems
+          that work on the days you don't feel like it.
         </p>
       </div>
     </section>
@@ -37,8 +43,8 @@ import Layout from '../layouts/Layout.astro'
     <section class="mb-24">
       <h2 class="mb-4 font-mono text-xs tracking-widest text-muted uppercase">Weekly cast</h2>
       <p class="mb-6 text-fg/80 leading-relaxed">
-        One email a week. One idea worth your time. No fluff, no upsells —
-        just clear thinking on how to eat, move, and think better.
+        One email a week exploring one idea — how to eat, move, or think better.
+        Short, useful, no upsells.
       </p>
       <form class="flex flex-col gap-3 sm:flex-row sm:items-center">
         <input
@@ -54,33 +60,21 @@ import Layout from '../layouts/Layout.astro'
           Subscribe
         </button>
       </form>
-      <p class="mt-3 text-xs text-muted">
-        Join 1,000+ people who are done guessing about their health.
-      </p>
     </section>
 
     <!-- Projects -->
     <section class="mb-24">
       <h2 class="mb-6 font-mono text-xs tracking-widest text-muted uppercase">Projects</h2>
       <div class="space-y-6">
-        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
+        <a href="https://www.eat.zone" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
           <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Body Compass</h3>
-          <p class="text-sm text-muted">Personalised health assessments. Data in, plan out.</p>
+          <p class="text-sm text-muted">A free health assessment that builds you a personalised 30-day plan.</p>
         </a>
-        <a href="#" class="group block border border-border p-5 transition-colors hover:border-muted">
+        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="group block border border-border p-5 transition-colors hover:border-muted">
           <h3 class="mb-1 text-sm font-medium text-accent group-hover:underline">Unsit Your Back</h3>
-          <p class="text-sm text-muted">A 12-week system to fix your back. No equipment, no guesswork.</p>
+          <p class="text-sm text-muted">A 12-week programme to fix your back. No equipment, no guesswork.</p>
         </a>
       </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="mb-24 border-l border-border pl-6">
-      <blockquote class="text-fg/70 italic leading-relaxed">
-        "I would not have been able to achieve this in such a short period of time
-        if it were not for your program."
-      </blockquote>
-      <p class="mt-3 font-mono text-xs text-muted">— Matt</p>
     </section>
 
     <!-- Footer -->
