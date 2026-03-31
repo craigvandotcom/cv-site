@@ -2,101 +2,286 @@
 import Layout from '../layouts/Layout.astro'
 
 const title = 'Craig Van'
-const description = 'Engineer turned health obsessive. Building systems for eating, moving, and thinking clearly.'
-const url = 'https://craigvan.com'
+const description = 'Health systems for eating, moving, and thinking clearly.'
+
+const principles = [
+  {
+    title: 'Engineer the default',
+    body: 'Build environments and routines that work even when motivation disappears.',
+  },
+  {
+    title: 'Follow signal, not noise',
+    body: 'Use clear frameworks backed by lived experiments instead of endless health content.',
+  },
+  {
+    title: 'Compound the basics',
+    body: 'Small decisions around food, posture, training, and stillness shape everything else.',
+  },
+]
+
+const projects = [
+  {
+    name: 'Body Compass',
+    href: 'https://bodycompass.app',
+    description: 'A free health assessment that turns your current reality into a personalised 30-day plan.',
+    tag: 'Assessment',
+  },
+  {
+    name: 'Unsit Your Back',
+    href: 'https://www.unsit.app',
+    description: 'A 12-week system to rebuild your back without equipment, random stretches, or guesswork.',
+    tag: 'Program',
+  },
+]
 ---
 
 <Layout title={title} description={description}>
-  <main class="mx-auto max-w-2xl px-6 py-24 md:py-32">
-
-    <!-- Hero -->
-    <section class="mb-28 animate-fade-up">
-      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">eat · move · meditate</p>
-      <h1 class="mb-8 text-3xl font-light leading-[1.3] tracking-tight text-accent md:text-[2.75rem] md:leading-[1.2]">
-        I'm an engineer who got obsessed with<br class="hidden md:inline" /> how the human body actually works.
-      </h1>
-      <p class="max-w-lg text-lg leading-relaxed text-muted">
-        Most health advice is noise. So I built systems instead —
-        things I use every day, things that compound.
-        Now I share what works.
-      </p>
-    </section>
-
-    <!-- About -->
-    <section class="mb-28 animate-fade-up delay-1">
-      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">About</h2>
-      <div class="space-y-4 text-fg/80 leading-[1.8]">
-        <p>
-          I'm Craig — based in Europe, background in engineering.
-          I spent years reverse-engineering how eating, moving, and stillness
-          actually affect the body, then turned what I found into frameworks
-          anyone can use.
-        </p>
-        <p>
-          No hacks, no motivation required. Just honest systems
-          that work on the days you don't feel like it.
-        </p>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="mb-28 animate-fade-up delay-2">
-      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Weekly cast</h2>
-      <p class="mb-8 text-fg/80 leading-[1.8]">
-        One email a week exploring one idea — how to eat, move, or think better.
-        Short, useful, no upsells.
-      </p>
-      <form class="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <input
-          type="email"
-          placeholder="your@email.com"
-          required
-          class="flex-1 rounded-md border border-border bg-transparent px-4 py-3 text-sm text-fg placeholder:text-muted/60 transition-all duration-300 focus:border-accent focus:outline-none"
-        />
-        <button
-          type="submit"
-          class="btn-shine rounded-md border border-accent bg-accent px-8 py-3 text-sm font-medium text-bg transition-all duration-300 hover:bg-transparent hover:text-accent"
-        >
-          Subscribe
-        </button>
-      </form>
-    </section>
-
-    <!-- Projects -->
-    <section class="mb-28 animate-fade-up delay-3">
-      <h2 class="mb-8 font-mono text-xs tracking-[0.25em] text-muted uppercase">Projects</h2>
-      <div class="space-y-4">
-        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="card-glow group block rounded-lg border border-border p-6">
-          <div class="flex items-start justify-between">
-            <div>
-              <h3 class="mb-2 text-sm font-medium text-accent">Body Compass</h3>
-              <p class="text-sm leading-relaxed text-muted">A free health assessment that builds you a personalised 30-day plan.</p>
+  <main class="px-5 pb-12 pt-6 md:px-8 md:pb-16 md:pt-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6">
+      <section class="animate-fade-up section-shell soft-grid overflow-hidden rounded-[2rem] px-6 py-6 md:px-10 md:py-8">
+        <div class="flex flex-col gap-8">
+          <header class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#155eef,#6ea8fe)] text-sm font-bold text-white shadow-[0_18px_35px_rgba(21,94,239,0.35)]">
+                CV
+              </div>
+              <div>
+                <p class="text-sm font-semibold tracking-[0.16em] text-muted-strong uppercase">Craig Van</p>
+                <p class="text-sm text-muted">Health systems engineer</p>
+              </div>
             </div>
-            <span class="text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&#8599;</span>
-          </div>
-        </a>
-        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="card-glow group block rounded-lg border border-border p-6">
-          <div class="flex items-start justify-between">
-            <div>
-              <h3 class="mb-2 text-sm font-medium text-accent">Unsit Your Back</h3>
-              <p class="text-sm leading-relaxed text-muted">A 12-week programme to fix your back. No equipment, no guesswork.</p>
-            </div>
-            <span class="text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&#8599;</span>
-          </div>
-        </a>
-      </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="animate-fade-up delay-4 border-t section-fade pt-10">
-      <div class="flex items-center justify-between text-xs text-muted">
-        <span>&copy; {new Date().getFullYear()} Craig Van</span>
-        <div class="flex gap-6">
-          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">X</a>
-          <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">GitHub</a>
+            <nav class="flex flex-wrap items-center gap-3 text-sm text-muted">
+              <a href="#framework" class="rounded-full px-3 py-2 transition-colors duration-200 hover:text-fg">Framework</a>
+              <a href="#projects" class="rounded-full px-3 py-2 transition-colors duration-200 hover:text-fg">Projects</a>
+              <a href="#newsletter" class="rounded-full px-3 py-2 transition-colors duration-200 hover:text-fg">Newsletter</a>
+              <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="rounded-full border border-border bg-white/60 px-4 py-2 font-medium text-fg transition-all duration-200 hover:-translate-y-0.5 hover:bg-white">
+                Follow on X
+              </a>
+            </nav>
+          </header>
+
+          <div class="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.95fr)] lg:items-end">
+            <div class="max-w-3xl">
+              <div class="eyebrow mb-6">eat.move.meditate</div>
+              <p class="mb-4 max-w-2xl text-sm font-medium tracking-[0.16em] text-muted-strong uppercase md:text-[0.82rem]">
+                Systems beat discipline every time
+              </p>
+              <h1 class="max-w-4xl font-serif text-5xl leading-[0.94] tracking-[-0.04em] text-fg sm:text-6xl md:text-7xl">
+                Reverse-engineered health
+                <span class="block text-accent">for people who want clarity, not hype.</span>
+              </h1>
+              <p class="mt-6 max-w-2xl text-base leading-8 text-muted-strong md:text-lg">
+                I build practical systems for eating, moving, and thinking clearly. The goal is simple:
+                fewer decisions, more energy, and routines that hold up on ordinary days.
+              </p>
+
+              <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a href="#newsletter" class="cta-button cta-primary">
+                  Receive weekly cast
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href="https://bodycompass.app" target="_blank" rel="noopener" class="cta-button cta-secondary">
+                  Try Body Compass
+                </a>
+              </div>
+
+              <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                <div class="metric-card rounded-[1.5rem] p-5">
+                  <p class="text-3xl font-bold tracking-[-0.04em] text-fg">10 min</p>
+                  <p class="mt-2 text-sm leading-6 text-muted">Weekly read or listen. One focused idea, no filler.</p>
+                </div>
+                <div class="metric-card rounded-[1.5rem] p-5">
+                  <p class="text-3xl font-bold tracking-[-0.04em] text-fg">1k+</p>
+                  <p class="mt-2 text-sm leading-6 text-muted">People systemising their health development.</p>
+                </div>
+                <div class="metric-card rounded-[1.5rem] p-5">
+                  <p class="text-3xl font-bold tracking-[-0.04em] text-fg">3 pillars</p>
+                  <p class="mt-2 text-sm leading-6 text-muted">Eat well. Move often. Create enough stillness to think.</p>
+                </div>
+              </div>
+            </div>
+
+            <aside class="hero-orb relative">
+              <div class="spotlight-card rounded-[2rem] p-6 md:p-7">
+                <div class="flex items-center justify-between">
+                  <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Operating system</p>
+                  <span class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">Live</span>
+                </div>
+                <div class="mt-8 space-y-5">
+                  <div class="rounded-[1.5rem] bg-slate-950 px-5 py-4 text-white shadow-[0_18px_40px_rgba(15,23,42,0.25)]">
+                    <p class="text-xs tracking-[0.18em] text-white/60 uppercase">Daily baseline</p>
+                    <p class="mt-3 text-2xl font-semibold tracking-[-0.04em]">Eat for stable energy</p>
+                    <p class="mt-2 text-sm leading-6 text-white/70">Choose foods that reduce friction in mood, digestion, and recovery.</p>
+                  </div>
+
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-[1.5rem] border border-border bg-white/80 p-5">
+                      <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Move</p>
+                      <p class="mt-3 text-lg font-semibold text-fg">Strength + mobility</p>
+                      <p class="mt-2 text-sm leading-6 text-muted">Fix the body you live in instead of compensating around it.</p>
+                    </div>
+                    <div class="rounded-[1.5rem] border border-border bg-white/80 p-5">
+                      <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Meditate</p>
+                      <p class="mt-3 text-lg font-semibold text-fg">Recover your attention</p>
+                      <p class="mt-2 text-sm leading-6 text-muted">Make space to notice what is working and what is not.</p>
+                    </div>
+                  </div>
+
+                  <div class="rounded-[1.5rem] border border-dashed border-border bg-white/72 p-5">
+                    <p class="text-sm leading-7 text-muted-strong">
+                      “I would not have been able to achieve this in such a short period of time if it were not for your program.”
+                    </p>
+                    <p class="mt-3 text-sm font-semibold text-fg">Matt</p>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
-      </div>
-    </footer>
+      </section>
 
+      <section id="framework" class="animate-fade-up delay-1 grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.2fr)]">
+        <div class="section-shell rounded-[2rem] px-6 py-8 md:px-8 md:py-10">
+          <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Why this works</p>
+          <h2 class="mt-4 max-w-md font-serif text-4xl leading-tight tracking-[-0.04em] text-fg md:text-5xl">
+            Systems remove the need to negotiate with yourself.
+          </h2>
+          <p class="mt-5 max-w-lg text-base leading-8 text-muted-strong">
+            Most health advice assumes you have unlimited willpower. I prefer frameworks that survive travel, stress,
+            missed mornings, and real life.
+          </p>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-3">
+          {principles.map((principle) => (
+            <article class="spotlight-card rounded-[1.75rem] p-6">
+              <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Principle</p>
+              <h3 class="mt-4 text-xl font-semibold tracking-[-0.03em] text-fg">{principle.title}</h3>
+              <p class="mt-3 text-sm leading-7 text-muted">{principle.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="animate-fade-up delay-2 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)]">
+        <div class="section-shell rounded-[2rem] px-6 py-8 md:px-8 md:py-10">
+          <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">About Craig</p>
+          <h2 class="mt-4 max-w-2xl font-serif text-4xl leading-tight tracking-[-0.04em] text-fg md:text-5xl">
+            Engineer first. Health obsessive by consequence.
+          </h2>
+          <div class="mt-6 max-w-3xl space-y-5 text-base leading-8 text-muted-strong">
+            <p>
+              I’m based in Europe and spent years reverse-engineering how food, movement, and stillness change how the body feels and performs.
+            </p>
+            <p>
+              What started as personal experimentation turned into a set of repeatable frameworks: honest systems that work without hacks, guilt, or constant motivation.
+            </p>
+          </div>
+        </div>
+
+        <div class="spotlight-card rounded-[2rem] p-6 md:p-8">
+          <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">What you get</p>
+          <ul class="mt-6 space-y-4 text-sm leading-7 text-muted-strong">
+            <li class="rounded-2xl border border-border bg-white/70 px-4 py-4">Clear weekly ideas you can apply immediately.</li>
+            <li class="rounded-2xl border border-border bg-white/70 px-4 py-4">Products built from direct experimentation, not trend-chasing.</li>
+            <li class="rounded-2xl border border-border bg-white/70 px-4 py-4">A calmer way to think about health that compounds over time.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="animate-fade-up delay-3 section-shell rounded-[2rem] px-6 py-8 md:px-8 md:py-10">
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Projects</p>
+            <h2 class="mt-4 font-serif text-4xl leading-tight tracking-[-0.04em] text-fg md:text-5xl">
+              Tools for turning intention into a system.
+            </h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-muted">
+            Each project reduces decision fatigue and gives you a concrete starting point instead of another stream of advice.
+          </p>
+        </div>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+          {projects.map((project) => (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener"
+              class="spotlight-card group rounded-[1.75rem] p-6 md:p-7"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">{project.tag}</span>
+                  <h3 class="mt-4 text-2xl font-semibold tracking-[-0.03em] text-fg">{project.name}</h3>
+                  <p class="mt-3 max-w-md text-sm leading-7 text-muted">{project.description}</p>
+                </div>
+                <span class="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white/80 text-lg text-fg transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section id="newsletter" class="animate-fade-up delay-4 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div class="section-shell rounded-[2rem] px-6 py-8 md:px-8 md:py-10">
+          <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Weekly cast</p>
+          <h2 class="mt-4 max-w-2xl font-serif text-4xl leading-tight tracking-[-0.04em] text-fg md:text-5xl">
+            One newsletter. Zero fluff.
+          </h2>
+          <p class="mt-5 max-w-xl text-base leading-8 text-muted-strong">
+            A focused weekly cast on eating, moving, and thinking better. Roughly ten minutes to read or listen.
+          </p>
+
+          <form class="mt-8 flex flex-col gap-4">
+            <label class="form-shell flex items-center gap-3 rounded-[1.25rem] px-4 py-4">
+              <span class="font-mono text-xs tracking-[0.18em] text-muted uppercase">Email</span>
+              <input
+                type="email"
+                placeholder="Where should I send it?"
+                required
+                class="form-input text-sm"
+              />
+            </label>
+            <button type="submit" class="cta-button cta-primary w-full sm:w-fit">
+              Join 1000+ readers
+              <span aria-hidden="true">&rarr;</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="spotlight-card rounded-[2rem] p-6 md:p-8">
+          <p class="font-mono text-xs tracking-[0.18em] text-muted uppercase">What lands in your inbox</p>
+          <div class="mt-6 space-y-4">
+            <div class="rounded-[1.5rem] border border-border bg-white/72 p-5">
+              <p class="text-sm font-semibold text-fg">One idea worth keeping</p>
+              <p class="mt-2 text-sm leading-7 text-muted">A practical principle you can use to improve food choices, movement quality, or mental clarity.</p>
+            </div>
+            <div class="rounded-[1.5rem] border border-border bg-white/72 p-5">
+              <p class="text-sm font-semibold text-fg">Signal over noise</p>
+              <p class="mt-2 text-sm leading-7 text-muted">Clear thinking, grounded in experimentation, without polished marketing speak or upsells.</p>
+            </div>
+            <div class="rounded-[1.5rem] border border-border bg-white/72 p-5">
+              <p class="text-sm font-semibold text-fg">A direct reply channel</p>
+              <p class="mt-2 text-sm leading-7 text-muted">Reply and tell me what you are working through. That feedback shapes the next cast.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="animate-fade-up delay-5 px-1 pt-2">
+        <div class="section-divider"></div>
+        <div class="flex flex-col gap-5 py-6 text-sm text-muted md:flex-row md:items-center md:justify-between">
+          <p>&copy; {new Date().getFullYear()} Craig Van. Built around clear thinking and repeatable health systems.</p>
+          <div class="flex items-center gap-5">
+            <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-fg">X</a>
+            <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="transition-colors duration-200 hover:text-fg">GitHub</a>
+          </div>
+        </div>
+      </footer>
+    </div>
   </main>
 </Layout>
