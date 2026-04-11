@@ -48,23 +48,24 @@ const url = 'https://craigvan.com'
         Short, useful, no upsells.
       </p>
       <p class="mb-8 text-sm text-muted">Join 1000+ people building calmer, more reliable health systems.</p>
-      <form class="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div class="input-shell flex-1 rounded-md border border-border px-1 py-1 transition-all duration-300 focus-within:border-accent">
-          <input
-            type="email"
-            placeholder="Where should I send it?"
-            required
-            class="w-full rounded-[calc(theme(borderRadius.md)-2px)] bg-transparent px-4 py-3 text-sm text-fg placeholder:text-muted/60 focus:outline-none"
-          />
-        </div>
-        <button
-          type="submit"
-          class="rounded-md border border-accent bg-accent px-8 py-3 text-sm font-medium text-bg transition-all duration-300 hover:bg-transparent hover:text-accent"
-        >
-          Receive weekly cast
-        </button>
-      </form>
+      <div id="custom-substack-embed"></div>
     </section>
+
+    <script is:inline>
+      window.CustomSubstackWidget = {
+        substackUrl: "craigvandotcom.substack.com",
+        placeholder: "Where should I send it?",
+        buttonText: "Receive weekly cast",
+        theme: "custom",
+        colors: {
+          primary: "#ffffff",
+          input: "#000000",
+          email: "#e5e5e5",
+          text: "#000000",
+        },
+      };
+    </script>
+    <script is:inline async src="https://substackapi.com/widget.js"></script>
 
     <!-- Projects -->
     <section class="mb-24 animate-fade-up delay-3">
