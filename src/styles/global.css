@@ -9,13 +9,12 @@
   --color-border: #262626;
   --color-accent: #ffffff;
   --color-glow: rgba(255, 255, 255, 0.06);
-  --color-panel: rgba(255, 255, 255, 0.03);
 }
 
 body {
   background:
-    radial-gradient(circle at top center, rgba(255, 255, 255, 0.06), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 20%),
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.045), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18%),
     #000;
 }
 
@@ -58,97 +57,18 @@ body > * {
   z-index: 1;
 }
 
-.hero-panel {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.hero-panel::after {
-  content: "";
-  position: absolute;
-  inset: auto -10% -35% auto;
-  width: 260px;
-  height: 260px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 68%);
-  pointer-events: none;
-}
-
 .newsletter-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-.info-chip {
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 999px;
-  padding: 0.55rem 0.85rem;
-  font-size: 0.72rem;
-  line-height: 1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(229, 229, 229, 0.8);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .input-shell {
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-/* Gradient border card effect */
-.card-glow {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.008));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-glow::before {
-  content: "";
-  position: absolute;
-  inset: -40% auto auto -10%;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
-  pointer-events: none;
-}
-
-.card-glow:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.34), 0 0 1px rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.015);
 }
 
 /* Input glow on focus */
 input:focus {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.05);
-}
-
-/* Button shine effect */
-.btn-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shine::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.15) 45%, rgba(255, 255, 255, 0.15) 55%, transparent 60%);
-  transform: translateX(-100%);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-shine:hover::after {
-  transform: translateX(100%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
 }
 
 /* External link arrow */
@@ -164,6 +84,14 @@ input:focus {
 .arrow-link:hover::after {
   opacity: 0.6;
   transform: translate(0, 0);
+}
+
+.project-row {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.project-row:hover {
+  transform: translateX(2px);
 }
 
 /* Section divider gradient */
