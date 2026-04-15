@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const title = 'Free Body Compass Poster — Craig Van'
+const description = 'A visual food map that shows you exactly what to eat, what to test, and what to avoid. Free when you subscribe.'
+---
+
+<Layout title={title} description={description}>
+  <main class="mx-auto max-w-2xl px-6 py-20 md:py-28">
+
+    <section class="animate-fade-up">
+      <a href="/" class="mb-12 inline-block font-mono text-xs tracking-[0.25em] text-muted uppercase transition-colors duration-300 hover:text-accent">Craig Van</a>
+
+      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">Free poster</p>
+
+      <h1 class="mb-6 max-w-xl text-3xl font-light leading-[1.12] tracking-[-0.03em] text-accent md:text-[2.75rem]">
+        A one-page map of everything you should eat — and everything you shouldn't.
+      </h1>
+
+      <div class="space-y-4 text-fg/80 leading-[1.8]">
+        <p>
+          The Body Compass is a colour-coded food guide that sorts every
+          major food into three zones: green (enjoy), yellow (test individually),
+          and red (avoid). No calorie counting. No guesswork.
+        </p>
+        <p>
+          It includes a symptom decoder so you can connect what you eat
+          to how you feel, a perfect plate formula for building meals,
+          and two clear paths forward — a 30-day reset or gradual improvement.
+        </p>
+      </div>
+    </section>
+
+    <section class="mt-10 animate-fade-up delay-1">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">What you get</h2>
+      <div class="space-y-3 text-sm text-fg/70 leading-relaxed">
+        <p>→ Colour-coded food spectrum — know what to eat at a glance</p>
+        <p>→ Symptom timeline — connect food to how you feel (0–72hrs)</p>
+        <p>→ Perfect plate formula — build balanced meals in seconds</p>
+        <p>→ Two paths — choose the 30-day reset or gradual approach</p>
+        <p>→ Complete food quality hierarchy — from best to avoid</p>
+      </div>
+    </section>
+
+    <section class="newsletter-panel mt-10 animate-fade-up delay-2 rounded-[1.25rem] px-6 py-7 md:px-8">
+      <p class="mb-2 text-base font-medium text-accent">Get the poster free</p>
+      <p class="mb-6 text-sm text-muted">
+        Enter your email and I'll send you the Body Compass poster.
+        You'll also get the Weekly Cast — one email a week on eating, moving, and thinking better.
+      </p>
+      <div data-supascribe-embed-id="168170608203" data-supascribe-subscribe></div>
+    </section>
+
+    <script is:inline async src="https://js.supascribe.com/v1/loader/VaNM8pdlJAboZzPXnDmwNXMbiUr2.js"></script>
+
+    <footer class="mt-20 animate-fade-up delay-3 border-t section-fade pt-8">
+      <div class="flex flex-col gap-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <span>&copy; {new Date().getFullYear()} Craig Van</span>
+        <div class="flex gap-6">
+          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">X</a>
+          <a href="/" class="transition-colors duration-300 hover:text-accent">Home</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>

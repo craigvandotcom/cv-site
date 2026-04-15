@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const title = 'The Weekly Cast — Craig Van'
+const description = 'One email a week on eating, moving, and thinking better. Short, useful, no upsells.'
+---
+
+<Layout title={title} description={description}>
+  <main class="mx-auto max-w-2xl px-6 py-20 md:py-28">
+
+    <section class="animate-fade-up">
+      <a href="/" class="mb-12 inline-block font-mono text-xs tracking-[0.25em] text-muted uppercase transition-colors duration-300 hover:text-accent">Craig Van</a>
+
+      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">eat · move · meditate</p>
+
+      <h1 class="mb-6 max-w-xl text-3xl font-light leading-[1.12] tracking-[-0.03em] text-accent md:text-[2.75rem]">
+        One idea per week on how to eat, move, or think better.
+      </h1>
+
+      <div class="space-y-4 text-fg/80 leading-[1.8]">
+        <p>
+          Most health advice is noise — recycled tips dressed up as breakthroughs.
+          The Weekly Cast is different. Each issue goes deep on one idea,
+          gives you the system behind it, and lets you move on with your week.
+        </p>
+        <p>
+          Short. Useful. No upsells. Just honest frameworks that work
+          on the days you don't feel like it.
+        </p>
+      </div>
+    </section>
+
+    <section class="newsletter-panel mt-12 animate-fade-up delay-1 rounded-[1.25rem] px-6 py-7 md:px-8">
+      <ul class="mb-6 space-y-2 text-sm text-fg/70">
+        <li>→ 10-minute read or listen</li>
+        <li>→ One focused topic per issue</li>
+        <li>→ Cancel anytime, no spam</li>
+      </ul>
+      <p class="mb-6 text-sm text-muted">Join 1,000+ people building calmer, more reliable health systems.</p>
+      <div data-supascribe-embed-id="168170608203" data-supascribe-subscribe></div>
+    </section>
+
+    <script is:inline async src="https://js.supascribe.com/v1/loader/VaNM8pdlJAboZzPXnDmwNXMbiUr2.js"></script>
+
+    <footer class="mt-20 animate-fade-up delay-2 border-t section-fade pt-8">
+      <div class="flex flex-col gap-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <span>&copy; {new Date().getFullYear()} Craig Van</span>
+        <div class="flex gap-6">
+          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">X</a>
+          <a href="/" class="transition-colors duration-300 hover:text-accent">Home</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
