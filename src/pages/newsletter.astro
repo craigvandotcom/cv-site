@@ -3,9 +3,11 @@ import Layout from '../layouts/Layout.astro'
 
 const title = 'The Weekly Cast — Craig Van'
 const description = 'One email a week on eating, moving, and thinking better. Short, useful, no upsells.'
+const image = '/og-newsletter.png'
+const path = '/newsletter'
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} image={image} path={path}>
   <main class="mx-auto max-w-2xl px-6 py-20 md:py-28">
 
     <section class="animate-fade-up">
