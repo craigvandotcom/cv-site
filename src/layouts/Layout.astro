@@ -4,14 +4,21 @@ import '../styles/global.css'
 interface Props {
   title?: string
   description?: string
+  image?: string
+  path?: string
 }
 
 const {
   title = 'Craig Van',
   description = 'Engineer turned health obsessive. Building systems for eating, moving, and thinking clearly.',
+  image,
+  path = '',
 } = Astro.props
 
-const url = 'https://craigvan.com'
+const siteUrl = 'https://craigvan.com'
+const url = `${siteUrl}${path}`
+const absoluteImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : undefined
+const twitterCard = absoluteImage ? 'summary_large_image' : 'summary'
 ---
 
 <!doctype html>
@@ -28,12 +35,16 @@ const url = 'https://craigvan.com'
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
+    {absoluteImage && <meta property="og:image" content={absoluteImage} />}
+    {absoluteImage && <meta property="og:image:width" content="1200" />}
+    {absoluteImage && <meta property="og:image:height" content="630" />}
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:site" content="@craigvan_" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
