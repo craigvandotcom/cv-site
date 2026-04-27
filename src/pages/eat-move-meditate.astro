@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const title = 'My Health Protocol — Craig Van'
+const description = 'Eat, Move, Meditate. The version of my practice I am running right now, with the data behind it. Updates as I learn.'
+const image = '/og-protocol.png'
+const path = '/eat-move-meditate'
+---
+
+<Layout title={title} description={description} image={image} path={path}>
+  <main class="mx-auto max-w-3xl px-6 py-20 md:py-28">
+
+    <!-- Header / breadcrumb -->
+    <section class="animate-fade-up">
+      <a href="/" class="mb-12 inline-block font-mono text-xs tracking-[0.25em] text-muted uppercase transition-colors duration-300 hover:text-accent">Craig Van</a>
+
+      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">My health protocol <span class="brand-dot">·</span> v1.0</p>
+
+      <h1 class="mb-6 max-w-2xl text-4xl font-light leading-[1.08] tracking-[-0.04em] text-accent md:text-[3.5rem]">
+        Eat <span class="brand-dot">·</span> Move <span class="brand-dot">·</span> Meditate.
+      </h1>
+
+      <div class="space-y-4 max-w-xl text-fg/80 leading-[1.8]">
+        <p>
+          Three integrated practices, each compounding into the others.
+          This is the version I'm running right now — with the data behind it.
+          It updates as I learn.
+        </p>
+        <p>
+          Not advice. Documentation. The practice gets sharper when I have
+          to write it down, and the only way I'll know my approach is working
+          is to share the data and let other practitioners challenge it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Daily wellness score -->
+    <section class="mt-24 animate-fade-up delay-1">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Daily wellness score</h2>
+      <p class="mb-8 max-w-xl text-fg/80 leading-[1.8]">
+        Three axes scored 1–5 each morning. The integrating signal across
+        all three pillars — the headline number that tells me whether the
+        practice is working today.
+      </p>
+
+      <div class="newsletter-panel rounded-[1.25rem] px-6 py-7 md:px-8">
+        <p class="mb-5 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Current 30-day average</p>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="flex items-center justify-between border-b border-border/60 pb-3">
+            <span class="text-fg/70">Energy</span>
+            <span class="text-accent">— · —</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-border/60 pb-3">
+            <span class="text-fg/70">Clarity</span>
+            <span class="text-accent">— · —</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-fg/70">Recovery</span>
+            <span class="text-accent">— · —</span>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-muted">Live chart launches with Body Compass v1.0. Until then, the daily score posts on X and Instagram.</p>
+      </div>
+
+      <p class="mt-6 max-w-xl text-sm text-muted leading-relaxed">
+        Why three axes instead of one number? Compositing throws away the
+        diagnostic. A 3-4-2 day (energy okay, mind sharp, body trashed) tells
+        me something a flat "3" never could.
+      </p>
+    </section>
+
+    <!-- EAT -->
+    <section class="mt-24 animate-fade-up delay-2">
+      <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Pillar 1</p>
+      <h2 class="mb-8 text-3xl font-light tracking-[-0.03em] text-accent md:text-[2.5rem]">Eat <span class="text-fg/40 font-light">— Body Compass</span></h2>
+
+      <h3 class="mb-4 font-mono text-xs tracking-[0.25em] text-muted uppercase">What I do</h3>
+      <div class="space-y-5 mb-10 text-fg/80 leading-[1.8]">
+        <p>I don't count calories or follow meal plans. I track the response, not the input.</p>
+
+        <div>
+          <p class="mb-2"><span class="text-accent">The framework — three zones.</span></p>
+          <ul class="space-y-3 list-none pl-0">
+            <li><span class="text-accent">Green Zone (Healing Core).</span> Universally safe foods, cleared by elimination protocols (AIP, IFM, Whole30, Wahls, Low FODMAP). My core when I need to dial in.</li>
+            <li><span class="text-accent">Yellow Zone (Bio-Individuality).</span> Mixed evidence, dose-dependent, individually variable. This is where my body's signals are the only authority.</li>
+            <li><span class="text-accent">Red Zone (Universal Harm).</span> Foods with documented harm mechanisms — gluten, industrial seed oils, processed sugar, most emulsifiers. Avoided by default.</li>
+          </ul>
+        </div>
+
+        <p><span class="text-accent">The 9 mechanisms I screen for.</span> Gut barrier disruption, systemic inflammation, immune reactivity, microbiome dysbiosis, histamine accumulation, FODMAP fermentation, pro-inflammatory lipid cascade, glycemic dysregulation, toxin/contaminant burden.</p>
+
+        <p><span class="text-accent">Eating window.</span> Currently iterating. Some weeks I eat breakfast; others I extend a morning fast until lunch. Undecided — running it as an open question rather than locking it down.</p>
+
+        <div>
+          <p class="mb-2"><span class="text-accent">Typical day.</span></p>
+          <ul class="space-y-2 list-none pl-0">
+            <li>Breakfast (when eaten): an organic egg-banana-tahini-blueberry-cinnamon pancake.</li>
+            <li>Lunch: warm vegetables and salad.</li>
+            <li>Dinner: organic protein (often fish) with vegetables.</li>
+          </ul>
+          <p class="mt-3 text-fg/70">All organic. No counting, no measuring — the body's response is the metric.</p>
+        </div>
+
+        <p><span class="text-accent">Sweet tooth — managed, not eliminated.</span> Higher-quality chocolate, no industrial sugar, mostly organic, gluten-free. Quality over quantity, every day. Despite eating calorie-dense treats daily, weight has stayed stable for years — proof to me that food <em>quality</em> and <em>inflammation</em> matter more than calorie counts.</p>
+      </div>
+
+      <h3 class="mb-4 font-mono text-xs tracking-[0.25em] text-muted uppercase">How I track it</h3>
+      <p class="mb-8 max-w-xl text-fg/80 leading-[1.8]">
+        Every meal goes into Body Compass. Each ingredient gets a zone
+        classification. Symptoms log across signal categories: energy,
+        clarity, recovery, digestion, mood, sleep, pain/inflammation, skin,
+        respiratory. The app surfaces correlations I'd never see manually.
+      </p>
+      <a href="https://bodycompass.app" target="_blank" rel="noopener" class="arrow-link font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors duration-300 hover:text-accent">bodycompass.app</a>
+    </section>
+
+    <!-- MOVE -->
+    <section class="mt-24 animate-fade-up delay-3">
+      <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Pillar 2</p>
+      <h2 class="mb-8 text-3xl font-light tracking-[-0.03em] text-accent md:text-[2.5rem]">Move <span class="text-fg/40 font-light">— Unsit + Freedom of Movement</span></h2>
+
+      <h3 class="mb-4 font-mono text-xs tracking-[0.25em] text-muted uppercase">What I do</h3>
+      <div class="space-y-5 mb-10 text-fg/80 leading-[1.8]">
+        <p><span class="text-accent">Foundational principle.</span> Proximal stability before distal mobility. Spine first. Hip, shoulder, ankle, wrist next. Then progression to load and complexity.</p>
+
+        <p><span class="text-accent">The progression.</span> Safety → stability → mobility → dexterity. Each layer is the foundation for the next. Skipping layers is how injuries happen.</p>
+
+        <div>
+          <p class="mb-2"><span class="text-accent">Weekly structure.</span></p>
+          <ul class="space-y-2 list-none pl-0">
+            <li>1× upper-body strength</li>
+            <li>1× lower-body strength</li>
+            <li>2× full-body mobility</li>
+            <li>Plus shorter coordination sessions woven through the week</li>
+          </ul>
+        </div>
+
+        <p><span class="text-accent">Current loads.</span> Cleans 65 kg <span class="brand-dot">·</span> front squats 85 kg.</p>
+
+        <p><span class="text-accent">Active skill project — coordination.</span> Hand-and-foot ball bouncing, plus juggling two tennis balls through different combinations. The point isn't the trick. It's the nervous-system tax. Coordination is mobility for the brain — the dexterity layer of the practice.</p>
+
+        <p><span class="text-accent">Breathing.</span> Full inhale → internal pressure → spinal stability. Exhale on concentric, inhale on eccentric. Breath drives the system.</p>
+      </div>
+
+      <h3 class="mb-4 font-mono text-xs tracking-[0.25em] text-muted uppercase">How I track it</h3>
+      <p class="mb-8 max-w-xl text-fg/80 leading-[1.8]">
+        Practice journal — every session logged by hand. The act of writing
+        it down is itself part of the practice.
+      </p>
+      <div class="flex flex-wrap gap-x-8 gap-y-3">
+        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="arrow-link font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors duration-300 hover:text-accent">unsit.app</a>
+        <span class="font-mono text-[11px] tracking-[0.22em] text-muted/50 uppercase">Freedom of Movement (coming)</span>
+      </div>
+    </section>
+
+    <!-- MEDITATE -->
+    <section class="mt-24 animate-fade-up delay-4">
+      <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Pillar 3</p>
+      <h2 class="mb-8 text-3xl font-light tracking-[-0.03em] text-accent md:text-[2.5rem]">Meditate <span class="text-fg/40 font-light">— Art of Stillness</span></h2>
+
+      <h3 class="mb-4 font-mono text-xs tracking-[0.25em] text-muted uppercase">What I do</h3>
+      <div class="space-y-5 mb-8 text-fg/80 leading-[1.8]">
+        <p><span class="text-accent">The framework — threefold path.</span> Ethics (sila) → concentration (samadhi) → wisdom (prajna). Each stage is the prerequisite for the next. You cannot meditate well from a life out of integrity.</p>
+
+        <p><span class="text-accent">Daily stillness sit.</span> One hour, every morning, 6:30–7:30.</p>
+
+        <p><span class="text-accent">TRE (Trauma Release Exercises).</span> Currently once a month. Building toward once a week.</p>
+
+        <p><span class="text-accent">Nature walks.</span> Twice a week, around the lake in front of our house.</p>
+
+        <p><span class="text-accent">The six steps to concentration.</span> Seat, posture, relaxation, breath, stillness, focus. Each one is a precondition for the next.</p>
+      </div>
+      <span class="font-mono text-[11px] tracking-[0.22em] text-muted/50 uppercase">Art of Stillness (coming)</span>
+    </section>
+
+    <!-- What I dropped -->
+    <section class="mt-24 animate-fade-up delay-5">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">What I dropped</h2>
+      <p class="mb-8 max-w-xl text-fg/80 leading-[1.8]">
+        Experiments that didn't work, that I stopped, or that got replaced.
+        Failed experiments are content here, not embarrassment.
+      </p>
+      <div class="divide-y divide-border border-y border-border">
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">~2015</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Calorie counting.</span> Replaced by symptom-tracking. The body's response is the data, not the math.</p>
+        </div>
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Various</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Universal diet rules.</span> Keto, Paleo, Vegan tried and abandoned. None survived contact with my actual signals over time. Population guidelines are a starting point, not an ending one.</p>
+        </div>
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">2024</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Daily nuts.</span> Tried for years as a "health food." Eliminated after my body kept signaling tightness and inflammation; blood work later confirmed nut sensitivity at the time. The data was in my body for months before it was in a lab report.</p>
+        </div>
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">During reset</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Greek yogurt as breakfast staple.</span> Removed during a 30-day reset; post-lunch energy stabilized within three days. Dropped permanently.</p>
+        </div>
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">University era</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Bread / refined carbs at lunch.</span> Clear 2pm crashes, every single time. Connection became undeniable once I started logging.</p>
+        </div>
+        <div class="py-5">
+          <p class="mb-2 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Ongoing shift</p>
+          <p class="text-fg/80 leading-[1.7]"><span class="text-accent">Reliance on outside experts as the primary input.</span> Replaced with signal-tracking + targeted expert input where signals don't resolve on their own.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Currently testing -->
+    <section class="mt-24 animate-fade-up">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Currently testing</h2>
+      <div class="space-y-4 max-w-xl text-fg/80 leading-[1.8]">
+        <p>
+          This is where active n=1 experiments live. Each one runs for a defined
+          period, gets tracked publicly via the daily wellness score, and either
+          graduates into the protocol or ends up in <em>What I dropped</em>.
+          Both outcomes are useful — and both get published.
+        </p>
+        <p class="text-sm text-muted italic">First batch of formal experiments coming with the next protocol update.</p>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="mt-24 animate-fade-up">
+      <h2 class="mb-8 font-mono text-xs tracking-[0.25em] text-muted uppercase">Tools I built (and use)</h2>
+      <div class="divide-y divide-border border-y border-border">
+        <a href="https://bodycompass.app" target="_blank" rel="noopener" class="project-row group block py-6">
+          <div class="flex items-start justify-between gap-6">
+            <div>
+              <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Eat pillar</p>
+              <h3 class="mb-2 text-base font-medium text-accent">Body Compass</h3>
+              <p class="text-sm leading-relaxed text-muted">Food and symptom tracker. Powers the eat pillar — every meal classified, every symptom logged, correlations surfaced.</p>
+            </div>
+            <span class="mt-0.5 text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5">&#8599;</span>
+          </div>
+        </a>
+        <a href="https://www.unsit.app" target="_blank" rel="noopener" class="project-row group block py-6">
+          <div class="flex items-start justify-between gap-6">
+            <div>
+              <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Move pillar</p>
+              <h3 class="mb-2 text-base font-medium text-accent">Unsit Your Back</h3>
+              <p class="text-sm leading-relaxed text-muted">12-week spine rehabilitation programme. The foundation of the move pillar.</p>
+            </div>
+            <span class="mt-0.5 text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5">&#8599;</span>
+          </div>
+        </a>
+        <div class="block py-6 opacity-60">
+          <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Move pillar — coming</p>
+          <h3 class="mb-2 text-base font-medium text-accent">Freedom of Movement</h3>
+          <p class="text-sm leading-relaxed text-muted">Full-body movement practice across stability, mobility, and dexterity.</p>
+        </div>
+        <div class="block py-6 opacity-60">
+          <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Meditate pillar — coming</p>
+          <h3 class="mb-2 text-base font-medium text-accent">Art of Stillness</h3>
+          <p class="text-sm leading-relaxed text-muted">Meditation and stillness practice grounded in the threefold path.</p>
+        </div>
+      </div>
+      <p class="mt-8 max-w-xl text-fg/80 leading-[1.8]">
+        I build these because I practice. The tools are how I run my own
+        protocol — and how I share it with anyone else who wants to.
+      </p>
+    </section>
+
+    <!-- Follow daily -->
+    <section class="newsletter-panel mt-24 animate-fade-up rounded-[1.25rem] px-6 py-7 md:px-8">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Follow daily</h2>
+      <p class="mb-6 max-w-xl text-fg/80 leading-[1.8]">
+        The protocol updates as I learn. The daily wellness score posts
+        every morning. Failed experiments get published. The practice
+        happens in public.
+      </p>
+      <div class="flex flex-wrap gap-x-8 gap-y-3">
+        <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors duration-300 hover:text-accent">X</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener" class="arrow-link font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors duration-300 hover:text-accent">Instagram</a>
+        <a href="/newsletter" class="arrow-link font-mono text-[11px] tracking-[0.22em] text-muted uppercase transition-colors duration-300 hover:text-accent">Weekly cast</a>
+      </div>
+    </section>
+
+    <!-- Version footer -->
+    <p class="mt-16 text-center text-xs text-muted">Version 1.0 <span class="brand-dot">·</span> Last updated April 2026</p>
+
+    <!-- Footer -->
+    <footer class="mt-12 border-t section-fade pt-10">
+      <div class="flex flex-col gap-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <span>&copy; {new Date().getFullYear()} Craig Van</span>
+        <div class="flex gap-6">
+          <a href="https://x.com/craigvan_" target="_blank" rel="noopener" class="arrow-link transition-colors duration-300 hover:text-accent">X</a>
+          <a href="/" class="transition-colors duration-300 hover:text-accent">Home</a>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
