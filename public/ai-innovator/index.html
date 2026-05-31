@@ -20,14 +20,45 @@
       --bg: #00112c;
       --panel: rgba(0, 17, 44, 0.82);
       --panel-strong: rgba(0, 17, 44, 0.96);
+
+      /* ink scale */
       --ink: #ffffff;
-      --muted: #a5afbd;
+      --ink-2: #e6edf5;
+      --ink-3: #d6dfea;
+      --muted: #b4bece;
+
+      /* accent — reserved for proof, CTA, and active/hover states only */
       --accent: #0abf53;
       --accent-2: #66e096;
-      --rule: rgba(255, 255, 255, 0.16);
+      --accent-soft: rgba(10, 191, 83, 0.12);
+      --accent-line: rgba(10, 191, 83, 0.30);
+
+      /* neutral structure — carries borders, rails, labels by default */
+      --rule: rgba(255, 255, 255, 0.13);
+      --rule-2: rgba(255, 255, 255, 0.07);
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-2: rgba(255, 255, 255, 0.065);
+
       --shadow: 0 24px 80px rgba(0, 17, 44, 0.38);
       --shadow-hover: 0 30px 95px rgba(0, 17, 44, 0.52);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+      /* spacing scale */
+      --s1: 4px;
+      --s2: 8px;
+      --s3: 12px;
+      --s4: 16px;
+      --s5: 24px;
+      --s6: 32px;
+      --s7: 48px;
+      --s8: 64px;
+
+      /* radius scale */
+      --r-sm: 12px;
+      --r-md: 16px;
+      --r-lg: 20px;
+      --r-xl: 28px;
+      --r-pill: 999px;
     }
 
     * {
@@ -43,9 +74,9 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at 10% 0%, rgba(10, 191, 83, 0.26), transparent 30%),
-        radial-gradient(circle at 88% 8%, rgba(102, 224, 150, 0.16), transparent 34%),
-        linear-gradient(135deg, #00112c 0%, #021b3a 54%, #00112c 100%);
+        radial-gradient(circle at 8% -2%, rgba(10, 191, 83, 0.10), transparent 32%),
+        radial-gradient(circle at 92% 4%, rgba(102, 224, 150, 0.06), transparent 36%),
+        linear-gradient(135deg, #00112c 0%, #021b3a 56%, #00112c 100%);
       font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.55;
       text-rendering: optimizeLegibility;
@@ -74,6 +105,12 @@
       color: var(--accent);
     }
 
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
     .shell {
       width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
@@ -87,7 +124,7 @@
       overflow: hidden;
       padding: clamp(28px, 5vw, 48px);
       border: 1px solid var(--rule);
-      border-radius: 30px;
+      border-radius: var(--r-xl);
       background: linear-gradient(135deg, rgba(0, 17, 44, 0.92), rgba(0, 17, 44, 0.64));
       box-shadow: var(--shadow);
       isolation: isolate;
@@ -150,7 +187,7 @@
       align-items: center;
       padding: 9px 12px;
       border: 1px solid rgba(10, 191, 83, 0.28);
-      border-radius: 16px;
+      border-radius: var(--r-md);
       background: rgba(255, 255, 255, 0.06);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
@@ -188,12 +225,12 @@
     .pill {
       display: inline-flex;
       align-items: center;
-      min-height: 36px;
-      padding: 8px 12px;
+      min-height: 38px;
+      padding: 8px 14px;
       border: 1px solid var(--rule);
-      border-radius: 999px;
-      background: rgba(0, 17, 44, 0.58);
-      color: #edf7f0;
+      border-radius: var(--r-pill);
+      background: var(--surface);
+      color: var(--ink-2);
       font-size: 14px;
       backdrop-filter: blur(12px);
       transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease), color 180ms var(--ease);
@@ -243,22 +280,32 @@
     .loop-card .tooltip {
       position: absolute;
       z-index: 5;
-      bottom: calc(100% + 10px);
+      bottom: calc(100% + 12px);
       left: 0;
       width: min(310px, 82vw);
-      padding: 12px 13px;
-      border: 1px solid rgba(10, 191, 83, 0.34);
-      border-radius: 16px;
-      background: rgba(0, 17, 44, 0.97);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
-      color: #e8f4ee;
+      padding: 13px 14px;
+      border: 1px solid var(--rule);
+      border-top: 1px solid var(--accent-line);
+      border-radius: var(--r-md);
+      background: rgba(2, 21, 46, 0.98);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+      color: var(--ink-3);
       font-size: 13px;
       font-weight: 500;
-      line-height: 1.42;
+      line-height: 1.46;
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 160ms ease, transform 160ms ease;
       pointer-events: none;
+    }
+
+    .loop-card .tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 22px;
+      border: 6px solid transparent;
+      border-top-color: rgba(2, 21, 46, 0.98);
     }
 
     .proof-badge:hover .tooltip,
@@ -276,30 +323,74 @@
       right: 0;
     }
 
+    .loop-lede {
+      max-width: 60ch;
+      margin: -6px 0 22px;
+      color: var(--ink-3);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
     .innovation-loop {
+      list-style: none;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 22px;
+      gap: 30px;
+      margin: 22px 0 0;
+      padding: 0;
+    }
+
+    .innovation-loop > li {
+      margin: 0;
     }
 
     .loop-card {
       position: relative;
-      min-height: 132px;
+      min-height: 150px;
       padding: 18px;
-      border: 1px solid rgba(10, 191, 83, 0.28);
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.13), rgba(255, 255, 255, 0.04));
+      border: 1px solid var(--rule);
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      cursor: help;
       transition: transform 220ms var(--ease), border-color 220ms var(--ease), background 220ms var(--ease), box-shadow 220ms var(--ease);
     }
 
     .loop-card:hover,
     .loop-card:focus-visible {
       transform: translateY(-5px);
-      border-color: rgba(10, 191, 83, 0.62);
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.2), rgba(255, 255, 255, 0.06));
-      box-shadow: 0 18px 42px rgba(0, 17, 44, 0.26);
-      outline: 0;
+      border-color: var(--accent-line);
+      background: var(--surface-2);
+      box-shadow: 0 18px 42px rgba(0, 17, 44, 0.3);
+    }
+
+    /* directional connector between steps */
+    .loop-card::after {
+      content: "";
+      position: absolute;
+      top: 33px;
+      right: -30px;
+      width: 30px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent-line), rgba(10, 191, 83, 0.55));
+      pointer-events: none;
+    }
+
+    .loop-card::before {
+      content: "";
+      position: absolute;
+      top: 30px;
+      right: -30px;
+      width: 6px;
+      height: 6px;
+      border-top: 1px solid rgba(10, 191, 83, 0.7);
+      border-right: 1px solid rgba(10, 191, 83, 0.7);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .innovation-loop > li:last-child .loop-card::after,
+    .innovation-loop > li:last-child .loop-card::before {
+      display: none;
     }
 
     .loop-step {
@@ -308,12 +399,23 @@
       justify-content: center;
       width: 30px;
       height: 30px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--muted);
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 200ms var(--ease), background 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+
+    .loop-card:hover .loop-step,
+    .loop-card:focus-visible .loop-step {
       background: var(--accent);
+      border-color: var(--accent);
       color: #00112c;
-      font-size: 13px;
-      font-weight: 900;
+      box-shadow: 0 0 0 5px rgba(10, 191, 83, 0.14);
     }
 
     .loop-card strong {
@@ -326,7 +428,51 @@
 
     .loop-card p {
       font-size: 13px;
-      line-height: 1.42;
+      line-height: 1.46;
+      color: var(--ink-3);
+    }
+
+    .loop-hint {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: color 180ms var(--ease), opacity 180ms var(--ease);
+    }
+
+    .loop-hint::before {
+      content: "+ ";
+      color: var(--accent);
+    }
+
+    .loop-card:hover .loop-hint,
+    .loop-card:focus-within .loop-hint {
+      color: var(--ink-3);
+      opacity: 1;
+    }
+
+    .loop-repeat {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0 0;
+      padding: 9px 14px 9px 12px;
+      border: 1px solid var(--accent-line);
+      border-radius: var(--r-pill);
+      background: var(--accent-soft);
+      color: var(--ink-2);
+      font-size: 13.5px;
+    }
+
+    .loop-repeat-icon {
+      display: inline-flex;
+      font-size: 17px;
+      color: var(--accent);
+      line-height: 1;
     }
 
     .case-grid {
@@ -339,7 +485,7 @@
     .case-item {
       padding: 13px;
       border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 16px;
+      border-radius: var(--r-md);
       background: rgba(255, 255, 255, 0.055);
       transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
     }
@@ -376,16 +522,16 @@
       position: relative;
       overflow: hidden;
       padding: 14px;
-      border: 1px solid rgba(10, 191, 83, 0.34);
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.16), rgba(255, 255, 255, 0.055));
+      border: 1px solid var(--accent-line);
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.10), rgba(255, 255, 255, 0.04));
       transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
     }
 
     .micro-metric:hover {
       transform: translateY(-3px);
-      border-color: rgba(10, 191, 83, 0.62);
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.22), rgba(255, 255, 255, 0.075));
+      border-color: rgba(10, 191, 83, 0.55);
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.16), rgba(255, 255, 255, 0.06));
     }
 
     .micro-metric small {
@@ -435,11 +581,15 @@
 
     .card {
       border: 1px solid var(--rule);
-      border-radius: 24px;
+      border-radius: var(--r-xl);
       background: var(--panel);
       box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
       backdrop-filter: blur(18px);
       transition: transform 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    }
+
+    .shell > .card {
+      margin-top: var(--s5);
     }
 
     .card:hover {
@@ -453,12 +603,24 @@
     }
 
     h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin: 0 0 18px;
       font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: 15px;
-      letter-spacing: 0.12em;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--muted);
+    }
+
+    h2::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: var(--accent);
+      flex: none;
     }
 
     h3 {
@@ -501,27 +663,29 @@
     }
 
     .tag {
-      padding: 5px 9px;
-      border: 1px solid rgba(10, 191, 83, 0.34);
-      border-radius: 999px;
-      color: #baf7cd;
-      background: rgba(10, 191, 83, 0.1);
+      padding: 5px 10px;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-pill);
+      color: var(--ink-3);
+      background: var(--surface);
       font-size: 12px;
-      font-weight: 650;
-      transition: transform 160ms var(--ease), background 160ms var(--ease), border-color 160ms var(--ease);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: transform 160ms var(--ease), background 160ms var(--ease), border-color 160ms var(--ease), color 160ms var(--ease);
     }
 
     .tag:hover {
       transform: translateY(-1px);
-      border-color: rgba(10, 191, 83, 0.58);
-      background: rgba(10, 191, 83, 0.16);
+      border-color: var(--accent-line);
+      background: var(--accent-soft);
+      color: #c9f7da;
     }
 
     .spotlight {
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(135deg, rgba(10, 191, 83, 0.18), rgba(102, 224, 150, 0.08)),
+        linear-gradient(135deg, rgba(10, 191, 83, 0.11), rgba(102, 224, 150, 0.05)),
         var(--panel-strong);
     }
 
@@ -530,7 +694,7 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      background: radial-gradient(circle at 15% 10%, rgba(10, 191, 83, 0.16), transparent 36%);
+      background: radial-gradient(circle at 15% 10%, rgba(10, 191, 83, 0.10), transparent 38%);
       pointer-events: none;
     }
 
@@ -546,20 +710,27 @@
 
     .role {
       position: relative;
-      padding-left: 18px;
-      border-left: 2px solid rgba(10, 191, 83, 0.42);
+      padding-left: 20px;
+      border-left: 1px solid var(--rule);
     }
 
     .role::before {
       content: "";
       position: absolute;
-      top: 3px;
-      left: -7px;
-      width: 12px;
-      height: 12px;
+      top: 4px;
+      left: -5px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
+      background: #3d4a5c;
+      border: 2px solid var(--bg);
+      box-sizing: content-box;
+    }
+
+    /* current role: the only timeline node that stays accent */
+    .role.is-current::before {
       background: var(--accent);
-      box-shadow: 0 0 18px rgba(10, 191, 83, 0.72);
+      box-shadow: 0 0 0 4px rgba(10, 191, 83, 0.16);
     }
 
     .meta {
@@ -576,7 +747,7 @@
     .skill {
       padding: 14px;
       border: 1px solid var(--rule);
-      border-radius: 18px;
+      border-radius: var(--r-md);
       background: rgba(0, 17, 44, 0.46);
       transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
     }
@@ -600,10 +771,10 @@
     }
 
     .metric {
-      padding: 16px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.18), rgba(102, 224, 150, 0.08));
-      border: 1px solid rgba(10, 191, 83, 0.26);
+      padding: 18px;
+      border-radius: var(--r-lg);
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.16), rgba(102, 224, 150, 0.06));
+      border: 1px solid var(--accent-line);
       transition: transform 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
     }
 
@@ -614,17 +785,19 @@
 
     .metric strong {
       display: block;
-      color: #ffffff;
-      font-size: 28px;
+      color: var(--accent-2);
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 32px;
       line-height: 1;
       letter-spacing: -0.04em;
     }
 
     .metric span {
       display: block;
-      margin-top: 6px;
-      color: var(--muted);
+      margin-top: 8px;
+      color: var(--ink-3);
       font-size: 13px;
+      line-height: 1.4;
     }
 
     .education p {
@@ -651,6 +824,20 @@
         transform: translateX(8%);
         opacity: 0.85;
       }
+    }
+
+    /* signature: an accent halo travels badge-to-badge, implying the loop is live */
+    @keyframes loop-step-cycle {
+      0% { box-shadow: 0 0 0 0 rgba(10, 191, 83, 0); border-color: var(--rule); color: var(--muted); }
+      6% { box-shadow: 0 0 0 5px rgba(10, 191, 83, 0.16); border-color: var(--accent); color: #cdeed8; }
+      19% { box-shadow: 0 0 0 5px rgba(10, 191, 83, 0.16); border-color: var(--accent); color: #cdeed8; }
+      25% { box-shadow: 0 0 0 0 rgba(10, 191, 83, 0); border-color: var(--rule); color: var(--muted); }
+      100% { box-shadow: 0 0 0 0 rgba(10, 191, 83, 0); border-color: var(--rule); color: var(--muted); }
+    }
+
+    @keyframes loop-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -699,6 +886,34 @@
       .hero::before {
         animation: ambient-shift 9s ease-in-out infinite;
       }
+
+      .innovation-loop > li {
+        animation: fade-up 600ms var(--ease) both;
+      }
+
+      .innovation-loop > li:nth-child(1) { animation-delay: 120ms; }
+      .innovation-loop > li:nth-child(2) { animation-delay: 200ms; }
+      .innovation-loop > li:nth-child(3) { animation-delay: 280ms; }
+      .innovation-loop > li:nth-child(4) { animation-delay: 360ms; }
+
+      .loop-step {
+        animation: loop-step-cycle 7s var(--ease) infinite;
+      }
+
+      .innovation-loop > li:nth-child(1) .loop-step { animation-delay: 0s; }
+      .innovation-loop > li:nth-child(2) .loop-step { animation-delay: 1.75s; }
+      .innovation-loop > li:nth-child(3) .loop-step { animation-delay: 3.5s; }
+      .innovation-loop > li:nth-child(4) .loop-step { animation-delay: 5.25s; }
+
+      /* hover takes over cleanly from the traveling halo */
+      .loop-card:hover .loop-step,
+      .loop-card:focus-visible .loop-step {
+        animation: none;
+      }
+
+      .loop-repeat-icon {
+        animation: loop-spin 12s linear infinite;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -720,6 +935,13 @@
 
       .innovation-loop {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      /* horizontal connectors don't survive a wrap — numbers + repeat pill carry the sequence */
+      .loop-card::after,
+      .loop-card::before {
+        display: none;
       }
     }
 
@@ -746,6 +968,31 @@
       .micro-metrics,
       .case-grid {
         grid-template-columns: 1fr;
+      }
+
+      .innovation-loop {
+        gap: 30px;
+      }
+
+      /* stacked: connectors become downward arrows between steps */
+      .innovation-loop > li:not(:last-child) .loop-card::after {
+        display: block;
+        top: auto;
+        bottom: -22px;
+        right: auto;
+        left: 26px;
+        width: 1px;
+        height: 22px;
+        background: linear-gradient(180deg, var(--accent-line), rgba(10, 191, 83, 0.55));
+      }
+
+      .innovation-loop > li:not(:last-child) .loop-card::before {
+        display: block;
+        top: auto;
+        bottom: -20px;
+        right: auto;
+        left: 23px;
+        transform: rotate(135deg);
       }
 
       .proof-badge .tooltip,
@@ -782,7 +1029,7 @@
       width: min(420px, 100%);
       padding: clamp(26px, 4vw, 36px);
       border: 1px solid var(--rule);
-      border-radius: 26px;
+      border-radius: var(--r-xl);
       background: var(--panel-strong);
       box-shadow: var(--shadow);
     }
@@ -806,7 +1053,7 @@
       width: 100%;
       padding: 13px 16px;
       border: 1px solid var(--rule);
-      border-radius: 14px;
+      border-radius: var(--r-sm);
       background: rgba(0, 17, 44, 0.58);
       color: #fff;
       font-size: 16px;
@@ -825,7 +1072,7 @@
       margin-top: 12px;
       padding: 13px 16px;
       border: 0;
-      border-radius: 14px;
+      border-radius: var(--r-sm);
       background: var(--accent);
       color: #00112c;
       font-size: 15px;
@@ -913,43 +1160,53 @@
       <div class="contact-grid">
         <a class="pill" href="mailto:craigvh89@gmail.com">craigvh89@gmail.com</a>
         <a class="pill" href="tel:+31686147759">+31 686147759</a>
-        <a class="pill" href="https://linkedin.com/in/craigvandotcom">LinkedIn</a>
-        <a class="pill" href="https://github.com/craigvandotcom">GitHub</a>
-        <a class="pill" href="https://simil8.io">simil8.io</a>
-        <a class="pill" href="https://bodycompass.app">bodycompass.app</a>
-        <a class="pill" href="https://unsit.app">unsit.app</a>
-        <a class="pill" href="https://github.com/craigvandotcom/agent-compounds">agent-compounds</a>
+        <a class="pill" href="https://linkedin.com/in/craigvandotcom" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="https://github.com/craigvandotcom" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
 
-    <section class="card pad">
-      <h2>Innovation loop</h2>
-      <div class="innovation-loop">
-        <article class="loop-card" tabindex="0">
+    <section class="card pad loop-section">
+      <h2>The innovation loop</h2>
+      <p class="loop-lede">How I turn recurring friction into tools people actually use — and keep compounding each pass. Hover any step for a real example from GenAI Auto Kit.</p>
+      <ol class="innovation-loop" aria-label="The innovation loop: four repeating steps">
+        <li class="loop-card" tabindex="0">
           <span class="loop-step">1</span>
-          <strong>Find pain</strong>
-          <p>Start with repeated friction in real workflows.</p>
-          <span class="tooltip">For GenAI Auto Kit, the signal came from repetitive support and operations tasks: summaries, merchant replies, investigation prompts, classification, request analysis, and log review.</span>
-        </article>
-        <article class="loop-card" tabindex="0">
+          <div class="loop-body">
+            <strong>Find pain</strong>
+            <p>Start with repeated friction in real workflows.</p>
+          </div>
+          <span class="loop-hint" aria-hidden="true">Example</span>
+          <span class="tooltip" role="note">For GenAI Auto Kit, the signal came from repetitive support and operations tasks: summaries, merchant replies, investigation prompts, classification, request analysis, and log review.</span>
+        </li>
+        <li class="loop-card" tabindex="0">
           <span class="loop-step">2</span>
-          <strong>Build messy</strong>
-          <p>Prototype quickly enough to test usefulness.</p>
-          <span class="tooltip">The first versions were built to automate my own workflow: simple highlight-and-trigger transforms, fast prompt iteration, and enough structure to learn what worked.</span>
-        </article>
-        <article class="loop-card" tabindex="0">
+          <div class="loop-body">
+            <strong>Build messy</strong>
+            <p>Prototype quickly enough to test usefulness.</p>
+          </div>
+          <span class="loop-hint" aria-hidden="true">Example</span>
+          <span class="tooltip" role="note">The first versions were built to automate my own workflow: simple highlight-and-trigger transforms, fast prompt iteration, and enough structure to learn what worked.</span>
+        </li>
+        <li class="loop-card" tabindex="0">
           <span class="loop-step">3</span>
-          <strong>Test with users</strong>
-          <p>Demo, gather feedback, and discover use cases.</p>
-          <span class="tooltip">I demoed the workflows to Support, got strong feedback, and discovered more use cases once people saw how the framework could fit into day-to-day work.</span>
-        </article>
-        <article class="loop-card" tabindex="0">
+          <div class="loop-body">
+            <strong>Test with users</strong>
+            <p>Demo, gather feedback, and discover use cases.</p>
+          </div>
+          <span class="loop-hint" aria-hidden="true">Example</span>
+          <span class="tooltip" role="note">I demoed the workflows to Support, got strong feedback, and discovered more use cases once people saw how the framework could fit into day-to-day work.</span>
+        </li>
+        <li class="loop-card" tabindex="0">
           <span class="loop-step">4</span>
-          <strong>Harden + scale</strong>
-          <p>Make it resilient, repeatable, and distributable.</p>
-          <span class="tooltip">The work moved toward polished UX, more resilient flows, multi-step synced workflows, and working with IS toward distribution through Managed Software Center.</span>
-        </article>
-      </div>
+          <div class="loop-body">
+            <strong>Harden + scale</strong>
+            <p>Make it resilient, repeatable, and distributable.</p>
+          </div>
+          <span class="loop-hint" aria-hidden="true">Example</span>
+          <span class="tooltip" role="note">The work moved toward polished UX, more resilient flows, multi-step synced workflows, and working with IS toward distribution through Managed Software Center.</span>
+        </li>
+      </ol>
+      <p class="loop-repeat"><span class="loop-repeat-icon" aria-hidden="true">&#8635;</span> …then repeat — each pass compounds on the last.</p>
     </section>
 
     <div class="layout">
@@ -1014,7 +1271,7 @@
         </article>
 
         <article class="project">
-          <h3>Agent Compounds — agentic engineering workflows</h3>
+          <h3><a class="project-link" href="https://github.com/craigvandotcom/agent-compounds" target="_blank" rel="noopener">Agent Compounds</a> — agentic engineering workflows</h3>
           <ul>
             <li>Built reusable commands, skills, and subagents for compound agentic workflows: planning, implementation, review, browser testing, multi-model querying, and expert consensus.</li>
             <li>Explored how agent systems compound when one workflow produces structure, evidence, or context that improves the next.</li>
@@ -1076,7 +1333,7 @@
       <section class="card pad">
         <h2>Experience</h2>
         <div class="timeline">
-          <article class="role">
+          <article class="role is-current">
             <h3>Adyen — Technical Support Engineer, In-Person Payments</h3>
             <p class="meta">Netherlands · May 2023 - Present · Previously Technical Support, Dec 2022 - May 2023</p>
             <ul>
