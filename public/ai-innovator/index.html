@@ -79,6 +79,7 @@
       margin: 0 auto;
       padding: 40px 0 72px;
       position: relative;
+      overflow-x: clip;
     }
 
     .hero {
@@ -266,6 +267,13 @@
     .loop-card:focus-within .tooltip {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* right-edge items: grow the tooltip leftward so it never spills past the container */
+    .proof-badge:last-child .tooltip,
+    .loop-card:last-child .tooltip {
+      left: auto;
+      right: 0;
     }
 
     .innovation-loop {
@@ -588,6 +596,7 @@
     .signal {
       display: grid;
       gap: 14px;
+      align-self: start;
     }
 
     .metric {
@@ -700,6 +709,17 @@
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
+      }
+    }
+
+    /* mid band: relieve the cramped desktop layout between the breakpoint and full width */
+    @media (max-width: 1024px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .innovation-loop {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
