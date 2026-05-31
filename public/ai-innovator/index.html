@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#00112c">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Craig Van Heerden — AI & Innovation CV</title>
+
+  <!-- Open Graph / share preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Craig Van Heerden — AI & Innovation CV">
+  <meta property="og:description" content="An interactive CV built for the AI & Innovation Specialist role. Password in my CV.">
+  <meta property="og:url" content="https://craigvan.com/ai-innovator">
+  <meta name="twitter:card" content="summary">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+    :root {
+      --bg: #00112c;
+      --panel: rgba(0, 17, 44, 0.82);
+      --panel-strong: rgba(0, 17, 44, 0.96);
+      --ink: #ffffff;
+      --muted: #a5afbd;
+      --accent: #0abf53;
+      --accent-2: #66e096;
+      --rule: rgba(255, 255, 255, 0.16);
+      --shadow: 0 24px 80px rgba(0, 17, 44, 0.38);
+      --shadow-hover: 0 30px 95px rgba(0, 17, 44, 0.52);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(10, 191, 83, 0.26), transparent 30%),
+        radial-gradient(circle at 88% 8%, rgba(102, 224, 150, 0.16), transparent 34%),
+        linear-gradient(135deg, #00112c 0%, #021b3a 54%, #00112c 100%);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 72%);
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 72px;
+      position: relative;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(0, 17, 44, 0.92), rgba(0, 17, 44, 0.64));
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -160px auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(10, 191, 83, 0.28), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.06) 42%, transparent 72%);
+      opacity: 0.7;
+      transform: translateX(-30%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 22px var(--accent);
+    }
+
+    .hero-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border: 1px solid rgba(10, 191, 83, 0.28);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .adyen-logo {
+      display: block;
+      width: 96px;
+      height: auto;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(44px, 8vw, 88px);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+    }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 24px 0 0;
+      color: #e6edf5;
+      font-size: clamp(18px, 2.4vw, 25px);
+      line-height: 1.38;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: rgba(0, 17, 44, 0.58);
+      color: #edf7f0;
+      font-size: 14px;
+      backdrop-filter: blur(12px);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease), color 180ms var(--ease);
+    }
+
+    .pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(10, 191, 83, 0.55);
+      background: rgba(10, 191, 83, 0.13);
+    }
+
+    .proof-badges {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .proof-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid rgba(10, 191, 83, 0.34);
+      border-radius: 999px;
+      background: rgba(10, 191, 83, 0.11);
+      color: #dfffe8;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: default;
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
+    }
+
+    .proof-badge:hover,
+    .proof-badge:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(10, 191, 83, 0.68);
+      background: rgba(10, 191, 83, 0.18);
+      box-shadow: 0 12px 30px rgba(10, 191, 83, 0.1);
+      outline: 0;
+    }
+
+    .proof-badge .tooltip,
+    .loop-card .tooltip {
+      position: absolute;
+      z-index: 5;
+      bottom: calc(100% + 10px);
+      left: 0;
+      width: min(310px, 82vw);
+      padding: 12px 13px;
+      border: 1px solid rgba(10, 191, 83, 0.34);
+      border-radius: 16px;
+      background: rgba(0, 17, 44, 0.97);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+      color: #e8f4ee;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.42;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 160ms ease, transform 160ms ease;
+      pointer-events: none;
+    }
+
+    .proof-badge:hover .tooltip,
+    .proof-badge:focus-within .tooltip,
+    .loop-card:hover .tooltip,
+    .loop-card:focus-within .tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .innovation-loop {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .loop-card {
+      position: relative;
+      min-height: 132px;
+      padding: 18px;
+      border: 1px solid rgba(10, 191, 83, 0.28);
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.13), rgba(255, 255, 255, 0.04));
+      transition: transform 220ms var(--ease), border-color 220ms var(--ease), background 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+
+    .loop-card:hover,
+    .loop-card:focus-visible {
+      transform: translateY(-5px);
+      border-color: rgba(10, 191, 83, 0.62);
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.2), rgba(255, 255, 255, 0.06));
+      box-shadow: 0 18px 42px rgba(0, 17, 44, 0.26);
+      outline: 0;
+    }
+
+    .loop-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #00112c;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .loop-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 17px;
+      line-height: 1.15;
+    }
+
+    .loop-card p {
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .case-item {
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.055);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .case-item:hover {
+      transform: translateY(-2px);
+      border-color: rgba(10, 191, 83, 0.34);
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .case-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .case-item span {
+      color: #d8e1eb;
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .micro-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .micro-metric {
+      position: relative;
+      overflow: hidden;
+      padding: 14px;
+      border: 1px solid rgba(10, 191, 83, 0.34);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.16), rgba(255, 255, 255, 0.055));
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .micro-metric:hover {
+      transform: translateY(-3px);
+      border-color: rgba(10, 191, 83, 0.62);
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.22), rgba(255, 255, 255, 0.075));
+    }
+
+    .micro-metric small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .micro-metric strong {
+      display: block;
+      color: #ffffff;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 20px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .micro-metric span {
+      display: block;
+      margin-top: 6px;
+      color: #d8e1eb;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .project-link {
+      color: #ffffff;
+      background: linear-gradient(90deg, var(--accent), var(--accent)) 0 100% / 100% 2px no-repeat;
+      transition: background-size 180ms var(--ease), color 180ms var(--ease);
+    }
+
+    .project-link:hover {
+      color: #dfffe8;
+      background-size: 100% 4px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--rule);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+      transition: transform 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease), background 220ms var(--ease);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(10, 191, 83, 0.32);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card.pad {
+      padding: clamp(22px, 3vw, 30px);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin: 0;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      color: #d8e1eb;
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: #e1e8f0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .project {
+      padding: 26px 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    .project:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid rgba(10, 191, 83, 0.34);
+      border-radius: 999px;
+      color: #baf7cd;
+      background: rgba(10, 191, 83, 0.1);
+      font-size: 12px;
+      font-weight: 650;
+      transition: transform 160ms var(--ease), background 160ms var(--ease), border-color 160ms var(--ease);
+    }
+
+    .tag:hover {
+      transform: translateY(-1px);
+      border-color: rgba(10, 191, 83, 0.58);
+      background: rgba(10, 191, 83, 0.16);
+    }
+
+    .spotlight {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(10, 191, 83, 0.18), rgba(102, 224, 150, 0.08)),
+        var(--panel-strong);
+    }
+
+    .spotlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at 15% 10%, rgba(10, 191, 83, 0.16), transparent 36%);
+      pointer-events: none;
+    }
+
+    .spotlight > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .role {
+      position: relative;
+      padding-left: 18px;
+      border-left: 2px solid rgba(10, 191, 83, 0.42);
+    }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: -7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(10, 191, 83, 0.72);
+    }
+
+    .meta {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 14px;
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      background: rgba(0, 17, 44, 0.46);
+      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .skill:hover {
+      transform: translateX(3px);
+      border-color: rgba(10, 191, 83, 0.34);
+      background: rgba(10, 191, 83, 0.075);
+    }
+
+    .skill strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffffff;
+    }
+
+    .signal {
+      display: grid;
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(10, 191, 83, 0.18), rgba(102, 224, 150, 0.08));
+      border: 1px solid rgba(10, 191, 83, 0.26);
+      transition: transform 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
+    }
+
+    .metric:hover {
+      transform: translateY(-3px);
+      border-color: rgba(10, 191, 83, 0.52);
+    }
+
+    .metric strong {
+      display: block;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .education p {
+      margin-bottom: 8px;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes ambient-shift {
+      0%, 100% {
+        transform: translateX(-30%);
+        opacity: 0.45;
+      }
+      50% {
+        transform: translateX(8%);
+        opacity: 0.85;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero,
+      .card {
+        animation: fade-up 700ms var(--ease) both;
+      }
+
+      .card:nth-of-type(2) {
+        animation-delay: 80ms;
+      }
+
+      .layout:nth-of-type(2) .card {
+        animation-delay: 140ms;
+      }
+
+      .layout:nth-of-type(3) .card {
+        animation-delay: 200ms;
+      }
+
+      .proof-badge,
+      .pill {
+        animation: fade-up 520ms var(--ease) both;
+      }
+
+      .proof-badge:nth-child(1),
+      .pill:nth-child(1) {
+        animation-delay: 80ms;
+      }
+
+      .proof-badge:nth-child(2),
+      .pill:nth-child(2) {
+        animation-delay: 120ms;
+      }
+
+      .proof-badge:nth-child(3),
+      .pill:nth-child(3) {
+        animation-delay: 160ms;
+      }
+
+      .proof-badge:nth-child(4),
+      .pill:nth-child(4) {
+        animation-delay: 200ms;
+      }
+
+      .hero::before {
+        animation: ambient-shift 9s ease-in-out infinite;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .shell {
+        width: min(100% - 20px, 1180px);
+        padding: 18px 0 40px;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+
+      .hero-top {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+      }
+
+      .innovation-loop,
+      .micro-metrics,
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-badge .tooltip,
+      .loop-card .tooltip {
+        position: static;
+        width: auto;
+        margin-top: 8px;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+      }
+    }
+
+    /* --- soft password gate --- */
+    .gate {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(10, 191, 83, 0.22), transparent 32%),
+        linear-gradient(135deg, #00112c 0%, #021b3a 54%, #00112c 100%);
+    }
+
+    .gate.is-unlocked {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 420ms var(--ease), visibility 0s 420ms;
+    }
+
+    .gate-card {
+      width: min(420px, 100%);
+      padding: clamp(26px, 4vw, 36px);
+      border: 1px solid var(--rule);
+      border-radius: 26px;
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .gate-title {
+      margin: 12px 0 8px;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(28px, 5vw, 36px);
+      letter-spacing: -0.04em;
+      color: #fff;
+      text-transform: none;
+    }
+
+    .gate-sub {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .gate-input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      background: rgba(0, 17, 44, 0.58);
+      color: #fff;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 180ms var(--ease), background 180ms var(--ease);
+    }
+
+    .gate-input:focus {
+      border-color: rgba(10, 191, 83, 0.6);
+      background: rgba(10, 191, 83, 0.08);
+    }
+
+    .gate-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 13px 16px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #00112c;
+      font-size: 15px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      transition: transform 160ms var(--ease), background 160ms var(--ease);
+    }
+
+    .gate-btn:hover {
+      transform: translateY(-2px);
+      background: var(--accent-2);
+    }
+
+    .gate-err {
+      margin: 14px 0 0;
+      color: #ff8d8d;
+      font-size: 14px;
+    }
+
+    body.gate-locked {
+      overflow: hidden;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111827;
+      }
+
+      .gate {
+        display: none !important;
+      }
+
+      .shell {
+        width: auto;
+        padding: 0;
+      }
+
+      .hero,
+      .card {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: #fff;
+        color: #111827;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      p,
+      ul,
+      li,
+      .meta {
+        color: #111827;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <form class="gate-card" id="gate-form" autocomplete="off">
+      <div class="eyebrow">Private preview</div>
+      <h2 id="gate-title" class="gate-title">Enter password</h2>
+      <p class="gate-sub">This interactive CV is password-protected. The password is on my CV.</p>
+      <input id="gate-input" class="gate-input" type="password" inputmode="text"
+             autocapitalize="none" autocorrect="off" spellcheck="false"
+             aria-label="Password" placeholder="Password" autofocus>
+      <button class="gate-btn" type="submit">Unlock</button>
+      <p class="gate-err" id="gate-err" hidden>Incorrect password — check my CV.</p>
+    </form>
+  </div>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-top">
+        <div class="eyebrow">AI & Innovation Specialist application</div>
+        <div class="brand-mark" aria-label="Adyen">
+          <img class="adyen-logo" src="assets/adyen-logo.svg" alt="Adyen logo">
+        </div>
+      </div>
+      <h1>Craig Van Heerden</h1>
+      <p class="subtitle">AI builder focused on turning messy workflow problems into practical tools people can actually use.</p>
+      <div class="proof-badges" aria-label="Proof points">
+        <span class="proof-badge" tabindex="0">Ops context<span class="tooltip">In-Person Payments support work: debugging real terminal, API, Tap to Pay, and COTS issues with Product, Engineering, and operational stakeholders.</span></span>
+        <span class="proof-badge" tabindex="0">Agentic engineering<span class="tooltip">Built Agent Compounds and worked deeply with agent harnesses, prompt chains, multi-model workflows, validation gates, and review loops.</span></span>
+        <span class="proof-badge" tabindex="0">Entrepreneurial builder<span class="tooltip">Ran a practice, launched Unsit Your Back, helped launch Doc Marty’s Mushrooms, and kept improving tools against real user and operational needs.</span></span>
+        <span class="proof-badge" tabindex="0">Data science<span class="tooltip">MSc Data Science background plus practical Python, SQL, forecasting, model benchmarking, and workflow evaluation experience.</span></span>
+      </div>
+      <div class="contact-grid">
+        <span class="pill">Amsterdam</span>
+        <a class="pill" href="mailto:craigvh89@gmail.com">craigvh89@gmail.com</a>
+        <a class="pill" href="tel:+31686147759">+31 686147759</a>
+        <a class="pill" href="https://linkedin.com/in/craigvandotcom">LinkedIn</a>
+        <a class="pill" href="https://github.com/craigvandotcom">GitHub</a>
+        <a class="pill" href="https://simil8.io">simil8.io</a>
+        <a class="pill" href="https://bodycompass.app">bodycompass.app</a>
+        <a class="pill" href="https://unsit.app">unsit.app</a>
+        <a class="pill" href="https://github.com/craigvandotcom/agent-compounds">agent-compounds</a>
+      </div>
+    </section>
+
+    <section class="card pad">
+      <h2>Innovation loop</h2>
+      <div class="innovation-loop">
+        <article class="loop-card" tabindex="0">
+          <span class="loop-step">1</span>
+          <strong>Find pain</strong>
+          <p>Start with repeated friction in real workflows.</p>
+          <span class="tooltip">For GenAI Auto Kit, the signal came from repetitive support and operations tasks: summaries, merchant replies, investigation prompts, classification, request analysis, and log review.</span>
+        </article>
+        <article class="loop-card" tabindex="0">
+          <span class="loop-step">2</span>
+          <strong>Build messy</strong>
+          <p>Prototype quickly enough to test usefulness.</p>
+          <span class="tooltip">The first versions were built to automate my own workflow: simple highlight-and-trigger transforms, fast prompt iteration, and enough structure to learn what worked.</span>
+        </article>
+        <article class="loop-card" tabindex="0">
+          <span class="loop-step">3</span>
+          <strong>Test with users</strong>
+          <p>Demo, gather feedback, and discover use cases.</p>
+          <span class="tooltip">I demoed the workflows to Support, got strong feedback, and discovered more use cases once people saw how the framework could fit into day-to-day work.</span>
+        </article>
+        <article class="loop-card" tabindex="0">
+          <span class="loop-step">4</span>
+          <strong>Harden + scale</strong>
+          <p>Make it resilient, repeatable, and distributable.</p>
+          <span class="tooltip">The work moved toward polished UX, more resilient flows, multi-step synced workflows, and working with IS toward distribution through Managed Software Center.</span>
+        </article>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section class="card pad">
+        <h2>Profile</h2>
+        <p>I work in In-Person Payments at Adyen, close to real operational problems: debugging complex issues, spotting patterns, and turning recurring friction into better tools, docs, and workflows. Outside the day-to-day role, I have spent the last few years building with AI, from lightweight automations to production-grade apps and agentic workflows. Entrepreneurship shaped the same loop for me: understand the pain point, build something practical, test it in the real world, and keep improving. I am strongest in ambiguity, where there is noise to filter, a useful signal to find, and something practical to build with the people who will use it.</p>
+      </section>
+
+      <aside class="card pad signal">
+        <h2>Signal</h2>
+        <div class="metric">
+          <strong>3 yrs</strong>
+          <span>hands-on AI app, workflow, and agentic engineering practice</span>
+        </div>
+        <div class="metric">
+          <strong>Ops + AI</strong>
+          <span>internal payments context plus practical automation building</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="layout">
+      <section class="card pad">
+        <h2>Selected AI, Agentic, and Automation Projects</h2>
+
+        <article class="project spotlight card pad">
+          <h3><a class="project-link" href="https://gitlab.is.adyen.com/craigv/genai-auto-kit">GenAI Auto Kit</a> — operational AI automation framework</h3>
+          <div class="tag-row">
+            <span class="tag">Ops AI</span>
+            <span class="tag">Reusable workflows</span>
+            <span class="tag">Prompt systems</span>
+            <span class="tag">Multi-step flows</span>
+          </div>
+          <div class="micro-metrics" aria-label="GenAI Auto Kit speed to value">
+            <div class="micro-metric">
+              <small>Messy prototype</small>
+              <strong>1 week</strong>
+              <span>First useful version built quickly enough to automate my own repetitive workflows.</span>
+            </div>
+            <div class="micro-metric">
+              <small>Hardened build</small>
+              <strong>3 days</strong>
+              <span>Polished into a more resilient and scalable workflow after early demos and feedback.</span>
+            </div>
+            <div class="micro-metric">
+              <small>Iteration pace</small>
+              <strong>Daily</strong>
+              <span>New features and workflows added continuously as more use cases surface.</span>
+            </div>
+          </div>
+          <div class="case-grid">
+            <div class="case-item"><strong>Problem</strong><span>Support and Ops work has repeated text-heavy tasks that are slow manually and easy to handle inconsistently.</span></div>
+            <div class="case-item"><strong>Prototype</strong><span>A lightweight framework for testing reusable AI workflows from selected text.</span></div>
+            <div class="case-item"><strong>Use cases</strong><span>Summaries, merchant replies, investigation prompts, taxonomy/classification, request analysis, log analysis, and synced multi-step flows.</span></div>
+            <div class="case-item"><strong>Scale path</strong><span>Polish the UX, harden the workflows, extend the framework, and distribute through Managed Software Center with IS support.</span></div>
+          </div>
+          <ul>
+            <li>Started a flexible framework for AI-assisted operational workflows, beginning with a highlight-and-trigger launcher for reusable transforms.</li>
+            <li>Designed around how people actually work: fast input capture, reusable prompts, configurable outputs, minimal context switching, and room to extend.</li>
+            <li>Framed as an early foundation, not a finished point solution: several use cases have surfaced, with potential for team-level ownership, incubation, and scaling.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Agent Compounds — agentic engineering workflows</h3>
+          <ul>
+            <li>Built reusable commands, skills, and subagents for compound agentic workflows: planning, implementation, review, browser testing, multi-model querying, and expert consensus.</li>
+            <li>Explored how agent systems compound when one workflow produces structure, evidence, or context that improves the next.</li>
+            <li>Applied these patterns to practical development loops with sub-agent coordination, validation gates, review loops, and model selection.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Body Compass — AI-enabled functional medicine app</h3>
+          <ul>
+            <li>Built <a href="https://bodycompass.app">bodycompass.app</a>, a functional medicine food tracking app with AI-assisted workflows, tuned prompts, and prompt chains.</li>
+            <li>Wrote benchmarking scripts to compare new models on product tasks and improve prompt/model choices.</li>
+            <li>Learned production-grade AI app building across product thinking, implementation, model evaluation, and workflow design.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Simil8 — early AI product exploration</h3>
+          <ul>
+            <li>Built <a href="https://simil8.io">simil8.io</a> as an early exploration of AI coworker / agentic software workflows before this direction became mainstream.</li>
+            <li>Reflects a long-running curiosity about where AI products are heading, and the signal-finding instinct that led me toward data science.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Doc Marty’s Mushrooms — operational AI and automation</h3>
+          <ul>
+            <li>Helped launch the e-commerce business and continued as technical/operations consultant across support, stock management, reporting, and growth.</li>
+            <li>Built a Voiceflow + OpenAI RAG support assistant with a Python/Flask backend to answer product questions from a curated knowledge base and reduce manual support effort.</li>
+            <li>Automated a Typeform → Python processing → Gmail reporting workflow to generate and deliver personalised client reports.</li>
+            <li>Prototyped a weekly stock forecasting and supply recommendation workflow that helps decide what needs to be ordered and when.</li>
+            <li>Used Klaviyo, LLMs, and Python for A/B email experimentation and faster copy iteration.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Entrepreneurial background — practice, product, and operations</h3>
+          <ul>
+            <li>Ran an independent physiotherapy practice, learning to understand client pain points directly, build trust, and adapt to context.</li>
+            <li>Created <a href="https://unsit.app">Unsit Your Back</a>, an online course and book based on repeated client education needs.</li>
+            <li>Shaped how I approach innovation: start with the real problem, make the first version practical, test with users, then improve toward scale.</li>
+          </ul>
+        </article>
+      </section>
+
+      <aside class="card pad">
+        <h2>Skills</h2>
+        <div class="skill-list">
+          <div class="skill"><strong>AI and agentic engineering</strong> LLM workflows, prompt chains, RAG, model benchmarking, agent harnesses, AI-assisted development, workflow evaluation</div>
+          <div class="skill"><strong>Product and workflow prototyping</strong> Rapid prototypes, operational process mapping, experimentation, adoption thinking, entrepreneurial problem discovery, risk/trade-off assessment</div>
+          <div class="skill"><strong>Programming and data</strong> Python, SQL, pandas, NumPy, scikit-learn, REST/JSON APIs, data cleaning, exploratory analysis</div>
+          <div class="skill"><strong>Tools and practices</strong> Git, command line, Postman, Jupyter, Markdown, technical writing, documentation, stakeholder communication</div>
+          <div class="skill"><strong>Domain knowledge</strong> In-Person Payments, payment terminals, Tap to Pay iOS/Android, integrations, connectivity, API troubleshooting, e-commerce operations</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="layout">
+      <section class="card pad">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <article class="role">
+            <h3>Adyen — Technical Support Engineer, In-Person Payments</h3>
+            <p class="meta">Amsterdam, Netherlands · May 2023 - Present · Previously Technical Support, Dec 2022 - May 2023</p>
+            <ul>
+              <li>Investigate complex payment terminal, API, Tap to Pay, and iOS/Android COTS issues with Product, Engineering, and Operations using logs, traces, payment timelines, and integration context.</li>
+              <li>Turn recurring support patterns into troubleshooting flows, Hub resources, documentation improvements, and internal enablement.</li>
+              <li>Point of contact for Tap to Pay integrations, creating troubleshooting approaches and proposals that reduce back-and-forth and help upskill the team.</li>
+              <li>Communicate root causes, trade-offs, and mitigations clearly to non-technical stakeholders while preserving technical detail for internal teams.</li>
+              <li>Supported IPP Mobile pre-launch readiness by flagging edge cases and improving documentation, supportability, and monitoring.</li>
+            </ul>
+          </article>
+
+          <article class="role">
+            <h3>Doc Marty’s Mushrooms — Technical Consultant</h3>
+            <p class="meta">Remote · Dec 2022 - Present</p>
+            <ul>
+              <li>Helped launch the e-commerce business and continue to design AI-enabled support, reporting, forecasting, and growth workflows.</li>
+              <li>Turn ambiguous business needs into practical prototypes using Python, Flask, OpenAI, Voiceflow, Typeform, Gmail, Klaviyo, and lightweight data workflows.</li>
+              <li>Balance speed, maintainability, and real operational usefulness.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <aside class="card pad education">
+        <h2>Education and Certifications</h2>
+        <p><strong>MSc, Data Science</strong><br>Tilburg University, 2023</p>
+        <p><strong>BSc (Hons), Biokinetics</strong><br>University of the Witwatersrand, 2015</p>
+        <p><strong>BSc, Biomedical Sciences</strong><br>University of the Witwatersrand, 2014</p>
+        <p><strong>CS50</strong> — Harvard, 2024</p>
+        <p><strong>Data Engineering with Python</strong> — DataCamp, 2024</p>
+        <p><strong>Data Scientist with Python</strong> — DataCamp, 2023</p>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var PW = "adyen";
+      var KEY = "ai-innovator-unlocked";
+      var gate = document.getElementById("gate");
+      var form = document.getElementById("gate-form");
+      var input = document.getElementById("gate-input");
+      var err = document.getElementById("gate-err");
+
+      function unlock(animate) {
+        document.body.classList.remove("gate-locked");
+        if (animate) {
+          gate.classList.add("is-unlocked");
+          setTimeout(function () { gate.remove(); }, 460);
+        } else {
+          gate.remove();
+        }
+      }
+
+      var already = false;
+      try { already = sessionStorage.getItem(KEY) === "1"; } catch (e) {}
+
+      if (already) {
+        unlock(false);
+        return;
+      }
+
+      document.body.classList.add("gate-locked");
+      if (input) input.focus();
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (input.value.trim().toLowerCase() === PW) {
+          try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+          unlock(true);
+        } else {
+          err.hidden = false;
+          input.value = "";
+          input.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
