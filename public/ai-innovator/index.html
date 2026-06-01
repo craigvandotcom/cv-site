@@ -212,6 +212,24 @@
       letter-spacing: -0.075em;
     }
 
+    /* avatar sits to the left of the name, mirroring the print CV header */
+    .hero-id {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.4vw, 24px);
+    }
+
+    .hero-avatar {
+      flex: none;
+      width: clamp(76px, 11vw, 108px);
+      height: clamp(76px, 11vw, 108px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--accent-line);
+      box-shadow: 0 10px 30px rgba(0, 17, 44, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
     .subtitle {
       max-width: 820px;
       margin: 24px 0 0;
@@ -1521,6 +1539,174 @@
         50% { box-shadow: 0 0 0 5px rgba(10, 191, 83, 0); }
       }
     }
+
+    /* First screen: hero at top, chat vertically centered, "View full CV"
+       resting near the bottom — all within the first viewport. Not sticky:
+       just laid out to fill one screen, and the CV flows in below the toggle
+       when expanded. */
+    .intro-screen {
+      display: flex;
+      flex-direction: column;
+      /* subtract the shell's top padding (+ a little breathing room) so the
+         toggle sits near the bottom edge, not flush against it */
+      min-height: calc(100vh - 80px);
+      min-height: calc(100svh - 80px);
+    }
+
+    .intro-screen .cvchat {
+      /* equal auto margins center the chat in the gap between hero and toggle */
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    /* --- "View full CV" accordion --- */
+    /* Everything below the chat collapses behind one toggle so the chat is the
+       first thing visitors meet — and the thing they try. The CV is one tap
+       away, not gone. */
+    .cv-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      margin-top: var(--s5);
+      padding: 18px 22px;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+
+    .cv-toggle:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-line);
+      background: var(--surface-2);
+      box-shadow: 0 14px 38px rgba(0, 17, 44, 0.28);
+    }
+
+    .cv-toggle-label {
+      display: block;
+    }
+
+    .cv-toggle-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+
+    .cv-toggle-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-line);
+      background: var(--accent-soft);
+      flex: none;
+    }
+
+    .cv-toggle-sub {
+      display: block;
+      margin-top: 4px;
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    /* swaps to "Hide full CV" label text via JS; this is the collapsed copy */
+    .cv-toggle[aria-expanded="true"] .cv-toggle-sub {
+      color: var(--ink-3);
+    }
+
+    .cv-toggle-icon {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--accent);
+      transition: transform 340ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
+    }
+
+    .cv-toggle-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .cv-toggle:hover .cv-toggle-icon {
+      border-color: var(--accent-line);
+      background: var(--accent-soft);
+    }
+
+    .cv-toggle[aria-expanded="true"] .cv-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    /* grid 0fr→1fr is the clean, content-agnostic height animation */
+    .cv-collapse {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 480ms var(--ease);
+    }
+
+    .cv-collapse.is-open {
+      grid-template-rows: 1fr;
+    }
+
+    .cv-collapse-inner {
+      min-height: 0;
+      /* clipped while collapsed/animating; JS flips to visible once open so card
+         hover-lift shadows aren't cropped at the edges */
+      overflow: hidden;
+    }
+
+    /* the loop card lost its `.shell > .card` top margin once nested; restore it
+       so there's breathing room under the toggle when open */
+    .cv-collapse-inner > .loop-section {
+      margin-top: 22px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cv-toggle,
+      .cv-toggle-icon,
+      .cv-collapse {
+        transition: none;
+      }
+    }
+
+    @media print {
+      /* no full-height intro on paper — the chat is hidden when printing */
+      .intro-screen {
+        display: block !important;
+        min-height: 0 !important;
+      }
+
+      .cv-toggle {
+        display: none !important;
+      }
+
+      /* always print the whole CV regardless of collapse state */
+      .cv-collapse {
+        display: block !important;
+        grid-template-rows: none !important;
+      }
+
+      .cv-collapse-inner {
+        overflow: visible !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1538,6 +1724,7 @@
   </div>
 
   <main class="shell" tabindex="-1">
+    <div class="intro-screen">
     <section class="hero">
       <div class="hero-top">
         <div class="eyebrow">AI & Innovation Specialist application</div>
@@ -1545,7 +1732,11 @@
           <img class="adyen-logo" src="/ai-innovator/assets/adyen-logo.svg" alt="Adyen logo">
         </div>
       </div>
-      <h1>Craig Van Heerden</h1>
+      <div class="hero-id">
+        <img class="hero-avatar" src="/ai-innovator/assets/profile.jpg"
+             alt="Craig Van Heerden" width="108" height="108" loading="eager" decoding="async">
+        <h1>Craig Van Heerden</h1>
+      </div>
       <div class="contact-grid">
         <a class="pill" href="mailto:craigvh89@gmail.com">craigvh89@gmail.com</a>
         <a class="pill" href="tel:+31686147759">+31 686147759</a>
@@ -1590,9 +1781,27 @@
       </div>
     </section>
 
+    <!-- View full CV — everything below the chat collapses behind this toggle so
+         the chat leads. Collapsed by default; the page already requires JS (gate
+         + chat), so a JS-driven accordion is consistent. -->
+    <button class="cv-toggle" id="cv-toggle" type="button"
+            aria-expanded="false" aria-controls="cv-collapse">
+      <span class="cv-toggle-label">
+        <span class="cv-toggle-title" id="cv-toggle-title">View full CV</span>
+        <span class="cv-toggle-sub" id="cv-toggle-sub">Innovation loop, projects, experience &amp; education</span>
+      </span>
+      <span class="cv-toggle-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
+    </div><!-- /.intro-screen -->
+
+    <div class="cv-collapse" id="cv-collapse">
+      <div class="cv-collapse-inner" id="cv-collapse-inner" inert>
+
     <section class="card pad loop-section">
       <h2>The innovation loop</h2>
-      <p class="loop-lede">How I turn recurring friction into tools people actually use — and keep compounding each pass. Hover any step for a real example from GenAI Auto Kit.</p>
+      <p class="loop-lede">How I turn recurring friction into tools people use. Hover any step for a real example from GenAI Auto Kit.</p>
       <ol class="innovation-loop" aria-label="The innovation loop: four repeating steps">
         <li class="loop-card" tabindex="0">
           <span class="loop-step">1</span>
@@ -1610,7 +1819,7 @@
             <p>Prototype quickly enough to test usefulness.</p>
           </div>
           <span class="loop-hint" aria-hidden="true">Example</span>
-          <span class="tooltip" role="note">The first versions were built to automate my own workflow: simple highlight-and-trigger transforms, fast prompt iteration, and enough structure to learn what worked.</span>
+          <span class="tooltip" role="note">I built the first versions to automate my own workflow: highlight-and-trigger transforms, fast prompt iteration, and just enough structure to learn what worked.</span>
         </li>
         <li class="loop-card" tabindex="0">
           <span class="loop-step">3</span>
@@ -1619,7 +1828,7 @@
             <p>Demo, gather feedback, and discover use cases.</p>
           </div>
           <span class="loop-hint" aria-hidden="true">Example</span>
-          <span class="tooltip" role="note">I demoed the workflows to Support, got strong feedback, and discovered more use cases once people saw how the framework could fit into day-to-day work.</span>
+          <span class="tooltip" role="note">I demoed the workflows to Support, got strong feedback, and found more use cases once people saw the framework fit their day-to-day work.</span>
         </li>
         <li class="loop-card" tabindex="0">
           <span class="loop-step">4</span>
@@ -1628,7 +1837,7 @@
             <p>Make it resilient, repeatable, and distributable.</p>
           </div>
           <span class="loop-hint" aria-hidden="true">Example</span>
-          <span class="tooltip" role="note">The work moved toward polished UX, more resilient flows, multi-step synced workflows, and working with IS toward distribution through Managed Software Center.</span>
+          <span class="tooltip" role="note">Then: polished UX, more resilient flows, multi-step synced workflows, and distribution through Managed Software Center with IS.</span>
         </li>
       </ol>
       <p class="loop-repeat"><span class="loop-repeat-icon" aria-hidden="true">&#8635;</span> …then repeat — each pass compounds on the last.</p>
@@ -1637,18 +1846,18 @@
     <div class="layout">
       <section class="card pad">
         <h2>Profile</h2>
-        <p>I work in In-Person Payments at Adyen, close to real operational problems: debugging complex issues, spotting patterns, and turning recurring friction into better tools, docs, and workflows. Outside the day-to-day role, I have spent the last few years building with AI, from lightweight automations to production-grade apps and agentic workflows. Entrepreneurship shaped the same loop for me: understand the pain point, build something practical, test it in the real world, and keep improving.</p>
+        <p>I work in In-Person Payments at Adyen, close to operational problems: I debug complex issues, spot patterns, and turn recurring friction into better tools and docs. For the last few years I've built with AI — from small automations to production apps and agentic workflows. Entrepreneurship taught me the loop I still use: find the real problem, build something practical, test it, improve.</p>
       </section>
 
       <aside class="card pad signal">
         <h2>Signal</h2>
         <div class="metric">
           <strong>3 yrs</strong>
-          <span>hands-on AI app, workflow, and agentic engineering practice</span>
+          <span>building AI apps, workflows, and agents</span>
         </div>
         <div class="metric">
           <strong>Ops + AI</strong>
-          <span>internal payments context plus practical automation building</span>
+          <span>payments operations, plus hands-on automation</span>
         </div>
       </aside>
     </div>
@@ -1665,76 +1874,70 @@
             <span class="tag">Prompt systems</span>
             <span class="tag">Multi-step flows</span>
           </div>
-          <div class="micro-metrics" aria-label="GenAI Auto Kit speed to value">
+          <div class="micro-metrics" aria-label="GenAI Auto Kit speed and impact">
             <div class="micro-metric">
               <small>Messy prototype</small>
               <strong>1 week</strong>
-              <span>First useful version built quickly enough to automate my own repetitive workflows.</span>
+              <span>Built fast enough to start automating my own repetitive work.</span>
             </div>
             <div class="micro-metric">
               <small>Hardened build</small>
               <strong>3 days</strong>
-              <span>Polished into a more resilient and scalable workflow after early demos and feedback.</span>
+              <span>Hardened into a resilient, scalable workflow after early demos and feedback.</span>
             </div>
             <div class="micro-metric">
-              <small>Iteration pace</small>
-              <strong>Daily</strong>
-              <span>New features and workflows added continuously as more use cases surface.</span>
+              <small>Support replies</small>
+              <strong>3&times; faster</strong>
+              <span>Drafts my own replies in a third of the time — more polished and better referenced.</span>
             </div>
           </div>
           <div class="case-grid">
-            <div class="case-item"><strong>Problem</strong><span>Support and Ops work has repeated text-heavy tasks that are slow manually and easy to handle inconsistently.</span></div>
-            <div class="case-item"><strong>Prototype</strong><span>A lightweight framework for testing reusable AI workflows from selected text.</span></div>
+            <div class="case-item"><strong>Problem</strong><span>Support and Ops repeat text-heavy tasks — slow by hand, easy to do inconsistently.</span></div>
+            <div class="case-item"><strong>Prototype</strong><span>Highlight a log, ticket, or message → a finished output (summary, reply, classification) in one keystroke, without leaving your tool.</span></div>
             <div class="case-item"><strong>Use cases</strong><span>Summaries, merchant replies, investigation prompts, taxonomy/classification, request analysis, log analysis, and synced multi-step flows.</span></div>
-            <div class="case-item"><strong>Scale path</strong><span>Polish the UX, harden the workflows, extend the framework, and distribute through Managed Software Center with IS support.</span></div>
+            <div class="case-item"><strong>Scale path</strong><span>Polish UX, harden workflows, extend the framework, distribute via Managed Software Center with IS.</span></div>
           </div>
-          <ul>
-            <li>Started a flexible framework for AI-assisted operational workflows, beginning with a highlight-and-trigger launcher for reusable transforms.</li>
-            <li>Designed around how people actually work: fast input capture, reusable prompts, configurable outputs, minimal context switching, and room to extend.</li>
-            <li>Framed as an early foundation, not a finished point solution: several use cases have surfaced, with potential for team-level ownership, incubation, and scaling.</li>
-          </ul>
         </article>
 
         <article class="project">
           <h3><a class="project-link" href="https://github.com/craigvandotcom/agent-compounds" target="_blank" rel="noopener">Agent Compounds</a> — agentic engineering workflows</h3>
           <ul>
-            <li>Built reusable commands, skills, and subagents for compound agentic workflows: planning, implementation, review, browser testing, multi-model querying, and expert consensus.</li>
-            <li>Explored how agent systems compound when one workflow produces structure, evidence, or context that improves the next.</li>
-            <li>Applied these patterns to practical development loops with sub-agent coordination, validation gates, review loops, and model selection.</li>
-            <li>Built on the cutting edge of the field: drew on <a class="project-link" href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank" rel="noopener">Kieran Klaassen's compound engineering</a> and completed and largely implemented <a class="project-link" href="https://agent-flywheel.com" target="_blank" rel="noopener">Jeffrey Emanuel's agentic flywheel</a> — two leaders pushing multi-agent systems to build more, and at much higher quality.</li>
+            <li>Reusable commands, skills, and subagents for compound agentic workflows: planning, implementation, review, browser testing, and expert consensus.</li>
+            <li>The idea: agent systems compound when one workflow's output — structure, evidence, context — improves the next. Applied to development loops with sub-agent coordination, validation gates, and model selection.</li>
+            <li>Drew on <a class="project-link" href="https://github.com/EveryInc/compound-engineering-plugin" target="_blank" rel="noopener">Kieran Klaassen's compound engineering</a> and implemented <a class="project-link" href="https://agent-flywheel.com" target="_blank" rel="noopener">Jeffrey Emanuel's agentic flywheel</a> — two leaders pushing multi-agent systems to build more, at higher quality.</li>
           </ul>
         </article>
 
         <article class="project">
           <h3><a class="project-link" href="https://bodycompass.app" target="_blank" rel="noopener">Body Compass</a> — AI-enabled functional medicine app</h3>
           <ul>
-            <li>A functional medicine food-tracking app — live on web, built for mobile (iOS/Android via Capacitor), submitted to the App Store (Android coming soon), with a home-screen widget.</li>
-            <li>Implemented vision models for food-image analysis, voice input for food entries, and autonomous research pipelines feeding a researched, classified food database.</li>
-            <li>Wrote benchmarking scripts to compare new models on product tasks and improve prompt/model choices — production-grade AI building across product, implementation, and evaluation.</li>
+            <li>A functional-medicine food app that turns a photo of a meal into a green / yellow / red read in seconds — live on web, in App Store review for iOS (Android next), with a home-screen widget.</li>
+            <li>Built the AI end-to-end: vision models for food photos, voice entry, and research pipelines that auto-build a classified food database — so users get answers without manual logging.</li>
+            <li>Benchmark new models against real product tasks before they ship, so quality improves on evidence, not guesswork.</li>
           </ul>
         </article>
 
         <article class="project">
           <h3><a class="project-link" href="https://simil8.io" target="_blank" rel="noopener">Simil8</a> — early AI product exploration</h3>
           <ul>
-            <li>An early exploration of AI coworker / agentic software workflows — and my first chat interface — before this direction became mainstream.</li>
-            <li>Reflects a long-running curiosity about where AI products are heading, and the signal-finding instinct that led me toward data science.</li>
+            <li>An early exploration of AI-coworker and agentic workflows — and my first chat interface — before the direction went mainstream.</li>
+            <li>Born from the same signal-finding instinct that later led me to data science — a long-standing read on where AI products are heading.</li>
           </ul>
         </article>
 
         <article class="project">
           <h3><a class="project-link" href="https://docmarty.com" target="_blank" rel="noopener">Doc Marty’s Mushrooms</a> — operational AI and automation</h3>
           <ul>
-            <li>Automated weekly stock forecasting and order calculations to guide what to reorder and when.</li>
-            <li>Built a Voiceflow support chatbot — focused on conversation fine-tuning, reliability, and multi-step workflows and handoffs.</li>
+            <li>Automated weekly stock forecasting and reorder calculations — 2–3 hours of weekly work now takes 5 minutes.</li>
+            <li>Built a Voiceflow support chatbot: conversation fine-tuning, reliability, multi-step workflows and handoffs.</li>
           </ul>
         </article>
 
         <article class="project">
           <h3>Entrepreneurial background — practice, product, and operations</h3>
           <ul>
-            <li>Created <a class="project-link" href="https://unsit.app" target="_blank" rel="noopener">Unsit Your Back</a>, an online course and book born from repeated client-education needs.</li>
-            <li>Shaped how I approach innovation: start with the real problem, ship a practical first version, test with users, then improve toward scale.</li>
+            <li>Created <a class="project-link" href="https://unsit.app" target="_blank" rel="noopener">Unsit Your Back</a>, an online course and book born from questions clients kept asking.</li>
+            <li>Ran the same find-build-test-improve loop on my own product, end to end.</li>
           </ul>
         </article>
       </section>
@@ -1742,12 +1945,9 @@
       <aside class="card pad">
         <h2>Skills</h2>
         <div class="skill-list">
-          <div class="skill"><strong>AI and agentic engineering</strong> LLM workflows, prompt chains, RAG, model benchmarking, agent harnesses, AI-assisted development, workflow evaluation</div>
-          <div class="skill"><strong>AI tools and stack</strong> Claude Code, Cursor, Codex, Gemini CLI, v0, Vercel, Railway, Supabase, TypeScript, Python</div>
-          <div class="skill"><strong>Product and workflow prototyping</strong> Rapid prototypes, operational process mapping, experimentation, adoption thinking, entrepreneurial problem discovery, risk/trade-off assessment</div>
-          <div class="skill"><strong>Programming and data</strong> Python, SQL, pandas, NumPy, scikit-learn, REST/JSON APIs, data cleaning, exploratory analysis</div>
-          <div class="skill"><strong>Tools and practices</strong> Git, command line, Postman, Jupyter, Markdown, technical writing, documentation, stakeholder communication</div>
-          <div class="skill"><strong>Domain knowledge</strong> In-Person Payments, payment terminals, Tap to Pay iOS/Android, integrations, connectivity, API troubleshooting, e-commerce operations</div>
+          <div class="skill"><strong>AI and agentic engineering</strong> LLM workflows, RAG, model benchmarking, agent harnesses, AI-assisted development</div>
+          <div class="skill"><strong>Stack</strong> Claude Code, Cursor, Codex, Gemini CLI, v0, Vercel, Railway, Supabase, TypeScript, Python, SQL</div>
+          <div class="skill"><strong>Domain</strong> In-Person Payments, terminals, Tap to Pay (iOS/Android), API troubleshooting, e-commerce ops</div>
         </div>
       </aside>
     </div>
@@ -1760,11 +1960,11 @@
             <h3>Adyen — Technical Support Engineer, In-Person Payments</h3>
             <p class="meta">Netherlands · May 2023 - Present · Previously Technical Support, Dec 2022 - May 2023</p>
             <ul>
-              <li>Investigate complex payment terminal, API, Tap to Pay, and iOS/Android COTS issues with Product, Engineering, and Operations using logs, traces, payment timelines, and integration context.</li>
-              <li>Turn recurring support patterns into troubleshooting flows, Hub resources, documentation improvements, and internal enablement.</li>
-              <li>Point of contact for Tap to Pay integrations, creating troubleshooting approaches and proposals that reduce back-and-forth and help upskill the team.</li>
-              <li>Communicate root causes, trade-offs, and mitigations clearly to non-technical stakeholders while preserving technical detail for internal teams.</li>
-              <li>Supported IPP Mobile pre-launch readiness by flagging edge cases and improving documentation, supportability, and monitoring.</li>
+              <li>Investigate complex terminal, API, Tap to Pay, and iOS/Android COTS issues with Product, Engineering, and Operations — using logs, traces, and payment timelines.</li>
+              <li>Turn recurring support patterns into troubleshooting flows, Hub resources, and internal enablement.</li>
+              <li>Point of contact for Tap to Pay integrations: troubleshooting approaches and proposals that cut back-and-forth and upskill the team.</li>
+              <li>Explain root causes and trade-offs clearly to non-technical stakeholders, keeping the technical detail for internal teams.</li>
+              <li>Supported IPP Mobile pre-launch readiness — flagging edge cases and improving docs, supportability, and monitoring.</li>
             </ul>
           </article>
 
@@ -1775,7 +1975,6 @@
               <li>Helped launch the e-commerce business; ongoing technical and operations consultant across support, reporting, and growth.</li>
               <li>Built an automated health-questionnaire → Gmail reporting workflow (Typeform, Python).</li>
               <li>Ran Klaviyo + LLM email experimentation for faster copy iteration and A/B testing.</li>
-              <li>Balance speed, maintainability, and real operational usefulness.</li>
             </ul>
           </article>
 
@@ -1783,7 +1982,7 @@
             <h3>Independent Biokinetics Practice — Biokineticist &amp; Owner</h3>
             <p class="meta">South Africa · 2015 - 2020</p>
             <ul>
-              <li>Ran a one-person practice for five years — full ownership of the business: client acquisition, medical-scheme claims and billing, scheduling, and stakeholder management from schemes to demanding patients, all while delivering therapy single-handed.</li>
+              <li>Ran a one-person practice for five years, owning everything: client acquisition, billing and medical-scheme claims, scheduling, and every stakeholder — all while delivering the therapy myself.</li>
             </ul>
           </article>
         </div>
@@ -1800,6 +1999,9 @@
         <p><strong>Data Scientist with Python</strong> — DataCamp, 2023</p>
       </aside>
     </div>
+
+      </div><!-- /.cv-collapse-inner -->
+    </div><!-- /.cv-collapse -->
   </main>
 
   <script>
@@ -2000,6 +2202,54 @@
             card.removeAttribute("aria-expanded");
           });
         }
+      });
+    })();
+  </script>
+
+  <script>
+    // "View full CV" accordion: collapse everything below the chat by default
+    // so the chat leads. Toggle expands/collapses with a height animation.
+    (function () {
+      var toggle = document.getElementById("cv-toggle");
+      var collapse = document.getElementById("cv-collapse");
+      var inner = document.getElementById("cv-collapse-inner");
+      var subNode = document.getElementById("cv-toggle-sub");
+      var titleNode = document.getElementById("cv-toggle-title");
+      if (!toggle || !collapse || !inner) return;
+
+      var SUB_CLOSED = "Innovation loop, projects, experience & education";
+      var SUB_OPEN = "Profile, projects, experience and education — tap to collapse";
+
+      // With reduced motion the grid transition is off, so transitionend never
+      // fires — flip overflow synchronously instead so shadows aren't clipped.
+      var noMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      // While collapsed the inner is clipped; once fully open we switch to
+      // visible so card hover-lift shadows aren't cropped at the edges.
+      collapse.addEventListener("transitionend", function (e) {
+        if (e.propertyName !== "grid-template-rows") return;
+        inner.style.overflow = collapse.classList.contains("is-open") ? "visible" : "hidden";
+      });
+
+      function setOpen(open) {
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        titleNode.textContent = open ? "Hide full CV" : "View full CV";
+        subNode.textContent = open ? SUB_OPEN : SUB_CLOSED;
+
+        if (open) {
+          inner.removeAttribute("inert");
+          inner.style.overflow = "hidden"; // clip during the open animation
+          collapse.classList.add("is-open");
+          if (noMotion.matches) inner.style.overflow = "visible";
+        } else {
+          inner.setAttribute("inert", "");
+          inner.style.overflow = "hidden";
+          collapse.classList.remove("is-open");
+        }
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(toggle.getAttribute("aria-expanded") !== "true");
       });
     })();
   </script>
