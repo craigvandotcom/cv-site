@@ -10,7 +10,7 @@
   <!-- Open Graph / share preview -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Craig Van Heerden — AI & Innovation CV">
-  <meta property="og:description" content="An interactive CV built for the AI & Innovation Specialist role. Password in my CV.">
+  <meta property="og:description" content="An interactive CV built for the AI & Innovation Specialist role.">
   <meta property="og:url" content="https://craigvan.com/ai-innovator">
   <meta name="twitter:card" content="summary">
   <style>
@@ -117,6 +117,11 @@
       padding: 40px 0 72px;
       position: relative;
       overflow-x: clip;
+    }
+
+    /* programmatic focus target after gate unlock — no visible ring on the container */
+    .shell:focus {
+      outline: none;
     }
 
     .hero {
@@ -242,41 +247,6 @@
       background: rgba(10, 191, 83, 0.13);
     }
 
-    .proof-badges {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .proof-badge {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: 7px 11px;
-      border: 1px solid rgba(10, 191, 83, 0.34);
-      border-radius: 999px;
-      background: rgba(10, 191, 83, 0.11);
-      color: #dfffe8;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: default;
-      transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease), box-shadow 180ms var(--ease);
-    }
-
-    .proof-badge:hover,
-    .proof-badge:focus-visible {
-      transform: translateY(-2px);
-      border-color: rgba(10, 191, 83, 0.68);
-      background: rgba(10, 191, 83, 0.18);
-      box-shadow: 0 12px 30px rgba(10, 191, 83, 0.1);
-      outline: 0;
-    }
-
-    .proof-badge .tooltip,
     .loop-card .tooltip {
       position: absolute;
       z-index: 5;
@@ -308,8 +278,6 @@
       border-top-color: rgba(2, 21, 46, 0.98);
     }
 
-    .proof-badge:hover .tooltip,
-    .proof-badge:focus-within .tooltip,
     .loop-card:hover .tooltip,
     .loop-card:focus-within .tooltip {
       opacity: 1;
@@ -317,7 +285,6 @@
     }
 
     /* right-edge items: grow the tooltip leftward so it never spills past the container */
-    .proof-badge:last-child .tooltip,
     .loop-card:last-child .tooltip {
       left: auto;
       right: 0;
@@ -858,27 +825,22 @@
         animation-delay: 200ms;
       }
 
-      .proof-badge,
       .pill {
         animation: fade-up 520ms var(--ease) both;
       }
 
-      .proof-badge:nth-child(1),
       .pill:nth-child(1) {
         animation-delay: 80ms;
       }
 
-      .proof-badge:nth-child(2),
       .pill:nth-child(2) {
         animation-delay: 120ms;
       }
 
-      .proof-badge:nth-child(3),
       .pill:nth-child(3) {
         animation-delay: 160ms;
       }
 
-      .proof-badge:nth-child(4),
       .pill:nth-child(4) {
         animation-delay: 200ms;
       }
@@ -995,7 +957,6 @@
         transform: rotate(135deg);
       }
 
-      .proof-badge .tooltip,
       .loop-card .tooltip {
         position: static;
         width: auto;
@@ -1137,176 +1098,187 @@
       }
     }
 
-    /* --- Chat with my CV --- */
+    /* --- Chat with my CV — the page's signature interactive feature --- */
+    /* Deliberately breaks the calm card rhythm: this is the proof-of-pitch
+       (an AI assistant built over the CV), so it gets headline scale, a living
+       glow, suggested-question chips, and breathing room the cards don't. */
     .cvchat {
-      position: fixed;
-      right: clamp(16px, 4vw, 28px);
-      bottom: clamp(16px, 4vw, 28px);
-      z-index: 40;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-    }
-
-    .cvchat-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 12px 18px;
+      position: relative;
+      margin: var(--s7) 0;
+      padding: clamp(22px, 3vw, 34px);
       border: 1px solid var(--accent-line);
-      border-radius: var(--r-pill);
-      background: rgba(0, 17, 44, 0.86);
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 14px 40px rgba(0, 17, 44, 0.42);
-      transition: transform 200ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
-    }
-
-    .cvchat-pill:hover {
-      transform: translateY(-2px);
-      border-color: rgba(10, 191, 83, 0.6);
-      background: rgba(10, 191, 83, 0.14);
-    }
-
-    .cvchat-pill-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px var(--accent);
-      flex: none;
-    }
-
-    .cvchat-panel {
-      width: min(380px, calc(100vw - 32px));
-      border: 1px solid var(--rule);
       border-radius: var(--r-xl);
-      background: var(--panel-strong);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      background:
+        radial-gradient(120% 140% at 0% 0%, rgba(10, 191, 83, 0.07), transparent 55%),
+        var(--panel);
+      box-shadow: 0 26px 70px rgba(0, 17, 44, 0.4);
+      isolation: isolate;
       overflow: hidden;
-      transform-origin: bottom right;
-      transition: opacity 220ms var(--ease), transform 220ms var(--ease);
     }
 
-    .cvchat-panel[hidden] {
-      display: none;
-    }
-
-    .cvchat[data-open="false"] .cvchat-panel {
-      opacity: 0;
-      transform: translateY(8px) scale(0.98);
+    /* living aurora — the only animated glow on the page, so it draws the eye */
+    .cvchat::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: -40%;
+      left: -10%;
+      width: 70%;
+      height: 180%;
+      background: radial-gradient(circle, rgba(10, 191, 83, 0.22), transparent 60%);
+      filter: blur(40px);
+      opacity: 0.6;
       pointer-events: none;
     }
 
-    .cvchat[data-open="true"] .cvchat-panel {
-      opacity: 1;
-      transform: none;
+    .cvchat::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: -50%;
+      right: -10%;
+      width: 60%;
+      height: 170%;
+      background: radial-gradient(circle, rgba(102, 224, 150, 0.16), transparent 62%);
+      filter: blur(44px);
+      opacity: 0.5;
+      pointer-events: none;
     }
 
-    .cvchat-header {
+    /* one aligned action row: "Ask anything" dot-pill on the left, then the
+       suggested-question chips inline to its right — all matched height. */
+    .cvchat-suggestions {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--rule);
-      background: linear-gradient(135deg, rgba(10, 191, 83, 0.1), transparent 70%);
+      gap: 9px;
+      margin: 0 0 16px;
     }
 
-    .cvchat-title {
-      margin: 0;
-      font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      text-transform: none;
-    }
-
-    .cvchat-title::before {
-      content: none;
-    }
-
-    .cvchat-sub {
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .cvchat-close {
-      flex: none;
-      width: 30px;
-      height: 30px;
-      border: 1px solid var(--rule);
-      border-radius: 10px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1;
-      cursor: pointer;
-      transition: color 160ms var(--ease), border-color 160ms var(--ease), background 160ms var(--ease);
-    }
-
-    .cvchat-close:hover {
-      color: var(--ink);
-      border-color: var(--accent-line);
-      background: var(--accent-soft);
-    }
-
-    .cvchat-body {
-      min-height: 84px;
-      max-height: min(46vh, 360px);
-      overflow-y: auto;
-      padding: 16px 18px;
-    }
-
-    .cvchat-empty {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.5;
-    }
-
-    .cvchat-q {
-      margin: 0 0 12px;
-      color: var(--ink-2);
+    .cvchat-pill,
+    .cvchat-chip {
+      display: inline-flex;
+      align-items: center;
+      height: 38px;
+      padding: 0 16px;
+      border-radius: var(--r-pill);
+      font-family: inherit;
       font-size: 13px;
-      font-weight: 600;
+      line-height: 1;
     }
 
-    .cvchat-q::before {
-      content: "You";
-      display: block;
-      margin-bottom: 3px;
-      color: var(--muted);
-      font-size: 10px;
+    .cvchat-pill {
+      gap: 8px;
+      padding-left: 13px;
+      border: 1px solid var(--accent-line);
+      background: var(--accent-soft);
+      color: #cdeed8;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
+    .cvchat-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
+      flex: none;
+    }
+
+    /* suggested-question chips — prefill + send, the main "it's interactive" cue */
+    .cvchat-chip {
+      border: 1px solid var(--rule);
+      background: var(--surface);
+      color: var(--ink-2);
+      cursor: pointer;
+      transition: transform 160ms var(--ease), border-color 160ms var(--ease), background 160ms var(--ease), color 160ms var(--ease);
+    }
+
+    .cvchat-chip:hover,
+    .cvchat-chip:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--accent-line);
+      background: var(--accent-soft);
+      color: #dffbe8;
+    }
+
+    .cvchat-chip:disabled {
+      opacity: 0.45;
+      cursor: default;
+      transform: none;
+    }
+
+    /* the floating glassy shell (Simil8 FloatingInput) — glow is always on */
+    .cvchat-shell {
+      position: relative;
+      border: 1px solid var(--accent-line);
+      border-radius: var(--r-lg);
+      background: rgba(0, 17, 44, 0.55);
+      box-shadow: 0 0 0 1px rgba(10, 191, 83, 0.16), 0 0 26px rgba(10, 191, 83, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      transition: border-color 260ms var(--ease), box-shadow 260ms var(--ease);
+    }
+
+    .cvchat-shell:focus-within {
+      border-color: rgba(10, 191, 83, 0.5);
+      box-shadow: 0 0 0 1px rgba(10, 191, 83, 0.3), 0 0 32px rgba(10, 191, 83, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    /* transcript appears above the input, only once there's an exchange */
+    .cvchat-body {
+      padding: 18px 20px 4px;
+    }
+
+    .cvchat-body[hidden] {
+      display: none;
+    }
+
+    .cvchat-msg {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cvchat-msg + .cvchat-msg {
+      margin-top: 14px;
+    }
+
+    /* user question — right-aligned bubble (Simil8 user message) */
+    .cvchat-q {
+      align-self: flex-end;
+      max-width: 85%;
+      margin: 0;
+      padding: 10px 14px;
+      border: 1px solid var(--accent-line);
+      border-radius: 16px 16px 4px 16px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* assistant answer — full-width, labelled (Simil8 AI message) */
     .cvchat-a {
       margin: 0;
       color: var(--ink-3);
-      font-size: 14px;
-      line-height: 1.55;
+      font-size: 14.5px;
+      line-height: 1.6;
       white-space: pre-wrap;
+      word-break: break-word;
     }
 
     .cvchat-a::before {
       content: "CV assistant";
       display: block;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
       color: var(--accent);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
@@ -1323,50 +1295,90 @@
       display: inline-block;
       width: 5px;
       height: 5px;
-      margin-right: 4px;
+      margin-right: 5px;
       border-radius: 999px;
       background: var(--muted);
       opacity: 0.5;
     }
 
+    /* input row */
     .cvchat-form {
       display: flex;
-      gap: 8px;
-      padding: 12px;
-      border-top: 1px solid var(--rule);
+      align-items: flex-end;
+      gap: 10px;
+      padding: 12px 12px 12px 18px;
     }
 
     .cvchat-input {
       flex: 1;
       min-width: 0;
-      padding: 11px 13px;
-      border: 1px solid var(--rule);
-      border-radius: var(--r-sm);
-      background: rgba(0, 17, 44, 0.58);
+      max-height: 160px;
+      padding: 10px 0;
+      border: 0;
+      background: transparent;
       color: var(--ink);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 15px;
+      line-height: 1.5;
+      resize: none;
       outline: none;
-      transition: border-color 180ms var(--ease), background 180ms var(--ease);
+      overflow-y: auto;
     }
 
-    .cvchat-input:focus {
+    .cvchat-input::placeholder {
+      color: var(--muted);
+    }
+
+    .cvchat-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+
+    .cvchat-model {
+      height: 36px;
+      padding: 0 30px 0 12px;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-pill);
+      background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23b4bece' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 11px center;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 12.5px;
+      cursor: pointer;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition: border-color 160ms var(--ease), color 160ms var(--ease);
+    }
+
+    .cvchat-model:hover {
+      border-color: var(--accent-line);
+      color: var(--ink-2);
+    }
+
+    .cvchat-model:focus-visible {
       border-color: rgba(10, 191, 83, 0.6);
-      background: rgba(10, 191, 83, 0.08);
     }
 
     .cvchat-send {
       flex: none;
-      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
       border: 0;
-      border-radius: var(--r-sm);
+      border-radius: 999px;
       background: var(--accent);
       color: #00112c;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
       cursor: pointer;
-      transition: transform 160ms var(--ease), background 160ms var(--ease);
+      transition: transform 160ms var(--ease), background 160ms var(--ease), opacity 160ms var(--ease);
+    }
+
+    .cvchat-send svg {
+      width: 18px;
+      height: 18px;
     }
 
     .cvchat-send:hover:not(:disabled) {
@@ -1375,17 +1387,21 @@
     }
 
     .cvchat-send:disabled {
-      opacity: 0.5;
+      opacity: 0.4;
       cursor: default;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cvchat-panel,
-      .cvchat-pill {
+      .cvchat-shell,
+      .cvchat-send,
+      .cvchat-chip {
         transition: none;
       }
 
-      .cvchat-dots span {
+      .cvchat-dots span,
+      .cvchat::before,
+      .cvchat::after,
+      .cvchat-pill-dot {
         animation: none !important;
       }
     }
@@ -1401,6 +1417,34 @@
       @keyframes cvchat-blink {
         0%, 100% { opacity: 0.25; }
         50% { opacity: 0.9; }
+      }
+
+      /* slow drifting aurora — alive, not distracting */
+      .cvchat::before {
+        animation: cvchat-drift-a 14s ease-in-out infinite;
+      }
+
+      .cvchat::after {
+        animation: cvchat-drift-b 17s ease-in-out infinite;
+      }
+
+      @keyframes cvchat-drift-a {
+        0%, 100% { transform: translate(0, 0); opacity: 0.5; }
+        50% { transform: translate(12%, 8%); opacity: 0.75; }
+      }
+
+      @keyframes cvchat-drift-b {
+        0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+        50% { transform: translate(-10%, -8%); opacity: 0.65; }
+      }
+
+      .cvchat-pill-dot {
+        animation: cvchat-pulse 2.4s ease-in-out infinite;
+      }
+
+      @keyframes cvchat-pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(10, 191, 83, 0.5); }
+        50% { box-shadow: 0 0 0 5px rgba(10, 191, 83, 0); }
       }
     }
   </style>
@@ -1419,7 +1463,7 @@
     </form>
   </div>
 
-  <main class="shell">
+  <main class="shell" tabindex="-1">
     <section class="hero">
       <div class="hero-top">
         <div class="eyebrow">AI & Innovation Specialist application</div>
@@ -1433,6 +1477,42 @@
         <a class="pill" href="tel:+31686147759">+31 686147759</a>
         <a class="pill" href="https://linkedin.com/in/craigvandotcom" target="_blank" rel="noopener">LinkedIn</a>
         <a class="pill" href="https://github.com/craigvandotcom" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    <!-- Chat with my CV — the page's signature interactive feature.
+         Single-turn, CV-grounded Q&A via /api/chat. -->
+    <section class="cvchat" aria-label="Ask my CV anything">
+      <div class="cvchat-suggestions" id="cvchat-suggestions">
+        <span class="cvchat-pill"><span class="cvchat-pill-dot" aria-hidden="true"></span>Ask anything</span>
+        <button class="cvchat-chip" type="button" data-q="What has Craig built with AI?">What has he built with AI?</button>
+        <button class="cvchat-chip" type="button" data-q="Why is Craig a fit for the AI &amp; Innovation Specialist role?">Why is he a fit for this role?</button>
+        <button class="cvchat-chip" type="button" data-q="Tell me about GenAI Auto Kit.">Tell me about GenAI Auto Kit</button>
+        <button class="cvchat-chip" type="button" data-q="What's Craig's experience at Adyen?">His experience at Adyen?</button>
+      </div>
+      <div class="cvchat-shell">
+        <div class="cvchat-body" id="cvchat-body" hidden>
+          <div class="cvchat-msg">
+            <p class="cvchat-q" id="cvchat-q"></p>
+            <p class="cvchat-a" id="cvchat-a" aria-live="polite" aria-atomic="true"></p>
+          </div>
+        </div>
+        <form class="cvchat-form" id="cvchat-form" autocomplete="off">
+          <textarea class="cvchat-input" id="cvchat-input" name="question" rows="1"
+                    placeholder="e.g. What has Craig built with AI?"
+                    aria-label="Your question" maxlength="600"
+                    autocomplete="off" autocapitalize="sentences"></textarea>
+          <div class="cvchat-controls">
+            <select class="cvchat-model" id="cvchat-model" aria-label="Choose a model">
+              <option value="flash" selected>Gemini 3 Flash</option>
+              <option value="gpt">GPT-5 mini</option>
+              <option value="llama">Llama 3.3 70B</option>
+            </select>
+            <button class="cvchat-send" id="cvchat-send" type="submit" aria-label="Send question" disabled>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -1504,7 +1584,7 @@
         <h2>Selected AI, Agentic, and Automation Projects</h2>
 
         <article class="project spotlight card pad">
-          <h3><a class="project-link" href="https://gitlab.is.adyen.com/craigv/genai-auto-kit">GenAI Auto Kit</a> — operational AI automation framework</h3>
+          <h3><a class="project-link" href="https://gitlab.is.adyen.com/craigv/genai-auto-kit" target="_blank" rel="noopener">GenAI Auto Kit</a> — operational AI automation framework</h3>
           <div class="tag-row">
             <span class="tag">Ops AI</span>
             <span class="tag">Reusable workflows</span>
@@ -1648,32 +1728,6 @@
     </div>
   </main>
 
-  <!-- Chat with my CV — single-turn, CV-grounded Q&A via /api/chat -->
-  <div class="cvchat" id="cvchat" data-open="false">
-    <div class="cvchat-panel" id="cvchat-panel" role="dialog" aria-label="Ask about Craig's CV" aria-modal="false" hidden>
-      <div class="cvchat-header">
-        <div>
-          <h2 class="cvchat-title">Ask about Craig's CV</h2>
-          <p class="cvchat-sub">One question at a time, answered from the CV.</p>
-        </div>
-        <button class="cvchat-close" id="cvchat-close" type="button" aria-label="Close chat">&times;</button>
-      </div>
-      <div class="cvchat-body" id="cvchat-body" aria-live="polite">
-        <p class="cvchat-empty" id="cvchat-empty">Ask me anything about Craig's experience, projects, or skills — e.g. “What has he built with AI?” or “Why is he a fit for an AI &amp; Innovation role?”</p>
-      </div>
-      <form class="cvchat-form" id="cvchat-form" autocomplete="off">
-        <input class="cvchat-input" id="cvchat-input" type="text" name="question"
-               placeholder="Ask about Craig's CV…" aria-label="Your question"
-               maxlength="600" autocomplete="off">
-        <button class="cvchat-send" id="cvchat-send" type="submit">Ask</button>
-      </form>
-    </div>
-    <button class="cvchat-pill" id="cvchat-toggle" type="button" aria-expanded="false" aria-controls="cvchat-panel">
-      <span class="cvchat-pill-dot" aria-hidden="true"></span>
-      Chat with my CV
-    </button>
-  </div>
-
   <script>
     (function () {
       var PW = "adyen";
@@ -1682,12 +1736,18 @@
       var form = document.getElementById("gate-form");
       var input = document.getElementById("gate-input");
       var err = document.getElementById("gate-err");
+      var main = document.querySelector("main.shell");
 
       function unlock(animate) {
         document.body.classList.remove("gate-locked");
+        // Re-expose the page to AT + keyboard and move focus into content.
+        if (main) main.removeAttribute("inert");
         if (animate) {
           gate.classList.add("is-unlocked");
-          setTimeout(function () { gate.remove(); }, 460);
+          setTimeout(function () {
+            gate.remove();
+            if (main) main.focus();
+          }, 460);
         } else {
           gate.remove();
         }
@@ -1702,6 +1762,9 @@
       }
 
       document.body.classList.add("gate-locked");
+      // While locked, take the rest of the page out of the tab order so focus
+      // can't escape behind the modal dialog.
+      if (main) main.setAttribute("inert", "");
       if (input) input.focus();
 
       form.addEventListener("submit", function (e) {
@@ -1720,85 +1783,81 @@
 
   <script>
     (function () {
-      var root = document.getElementById("cvchat");
-      var panel = document.getElementById("cvchat-panel");
-      var toggle = document.getElementById("cvchat-toggle");
-      var closeBtn = document.getElementById("cvchat-close");
       var form = document.getElementById("cvchat-form");
       var input = document.getElementById("cvchat-input");
       var send = document.getElementById("cvchat-send");
       var body = document.getElementById("cvchat-body");
-      if (!root || !form) return;
+      var qNode = document.getElementById("cvchat-q");
+      var aNode = document.getElementById("cvchat-a");
+      var modelSel = document.getElementById("cvchat-model");
+      var suggestions = document.getElementById("cvchat-suggestions");
+      if (!form || !input || !qNode || !aNode) return;
 
+      var chips = suggestions
+        ? Array.prototype.slice.call(suggestions.querySelectorAll(".cvchat-chip"))
+        : [];
       var busy = false;
 
-      function open() {
-        panel.hidden = false;
-        root.setAttribute("data-open", "true");
-        toggle.setAttribute("aria-expanded", "true");
-        setTimeout(function () { input.focus(); }, 60);
+      // Auto-grow the textarea to fit its content (Simil8 behaviour).
+      function autoResize() {
+        input.style.height = "auto";
+        input.style.height = input.scrollHeight + "px";
       }
 
-      function close() {
-        root.setAttribute("data-open", "false");
-        toggle.setAttribute("aria-expanded", "false");
-        // wait for the transition before removing from the a11y tree
-        setTimeout(function () {
-          if (root.getAttribute("data-open") === "false") panel.hidden = true;
-        }, 240);
+      // Reflect busy state across all controls (send + chips share one gate).
+      function syncControls() {
+        send.disabled = busy || input.value.trim().length === 0;
+        for (var i = 0; i < chips.length; i++) chips[i].disabled = busy;
       }
 
-      toggle.addEventListener("click", function () {
-        if (root.getAttribute("data-open") === "true") close();
-        else open();
+      input.addEventListener("input", function () {
+        autoResize();
+        syncControls();
       });
-      closeBtn.addEventListener("click", close);
 
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && root.getAttribute("data-open") === "true") {
-          close();
-          toggle.focus();
+      // Enter sends; Shift+Enter inserts a newline. Ignore mid-IME composition
+      // so confirming a CJK candidate doesn't submit a half-typed question.
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+          e.preventDefault();
+          if (!send.disabled) form.requestSubmit();
         }
       });
 
-      function escapeHtml(s) {
-        return s.replace(/[&<>"']/g, function (c) {
-          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
-        });
+      // Persistent nodes are updated in place (never innerHTML-clobbered), so the
+      // aria-live answer region announces reliably. textContent is XSS-safe, so
+      // no manual HTML escaping is needed for user question or model answer.
+      function showExchange(question) {
+        body.hidden = false;
+        qNode.textContent = question;
       }
 
-      // Each ask starts a FRESH exchange — only the current question + answer
-      // are ever shown. No multi-turn history is kept or sent.
-      function render(question, answerHtml, isError) {
-        body.innerHTML =
-          '<p class="cvchat-q">' + escapeHtml(question) + "</p>" +
-          '<p class="cvchat-a' + (isError ? " is-error" : "") + '">' + answerHtml + "</p>";
-        body.scrollTop = 0;
+      function setAnswerText(text, isError) {
+        aNode.classList.toggle("is-error", !!isError);
+        aNode.textContent = text;
       }
 
-      function renderLoading(question) {
-        render(
-          question,
-          '<span class="cvchat-dots" aria-label="Thinking"><span></span><span></span><span></span></span>',
-          false
-        );
+      function setAnswerLoading() {
+        aNode.classList.remove("is-error");
+        aNode.innerHTML =
+          '<span class="cvchat-dots" aria-label="Thinking"><span></span><span></span><span></span></span>';
       }
 
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (busy) return;
-        var question = input.value.trim();
-        if (!question) return;
+      function ask(question) {
+        question = (question || "").trim();
+        if (busy || !question) return;
 
         busy = true;
-        send.disabled = true;
-        renderLoading(question);
+        showExchange(question);
+        setAnswerLoading();
         input.value = "";
+        autoResize();
+        syncControls();
 
         fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ question: question })
+          body: JSON.stringify({ question: question, model: modelSel ? modelSel.value : undefined })
         })
           .then(function (res) {
             return res.json().then(function (data) {
@@ -1807,21 +1866,33 @@
           })
           .then(function (r) {
             if (r.ok && r.data && r.data.answer) {
-              render(question, escapeHtml(r.data.answer), false);
+              setAnswerText(r.data.answer, false);
             } else {
-              var msg = (r.data && r.data.error) || "Something went wrong. Please try again.";
-              render(question, escapeHtml(msg), true);
+              setAnswerText((r.data && r.data.error) || "Something went wrong. Please try again.", true);
             }
           })
           .catch(function () {
-            render(question, "Couldn't reach the assistant. Check your connection and try again.", true);
+            setAnswerText("Couldn't reach the assistant. Check your connection and try again.", true);
           })
           .then(function () {
             busy = false;
-            send.disabled = false;
+            syncControls();
             input.focus();
           });
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        ask(input.value);
       });
+
+      // Suggested-question chips prefill + send immediately.
+      if (suggestions) {
+        suggestions.addEventListener("click", function (e) {
+          var chip = e.target.closest(".cvchat-chip");
+          if (chip && chip.dataset.q && !busy) ask(chip.dataset.q);
+        });
+      }
     })();
   </script>
 </body>
