@@ -16,7 +16,7 @@ const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions'
 // to the default. Confirm exact slugs on https://openrouter.ai/models.
 const MODELS = {
   flash: { slug: 'google/gemini-3-flash-preview', label: 'Gemini 3 Flash' },
-  gpt: { slug: 'openai/gpt-5-mini', label: 'GPT-5 mini' },
+  gpt: { slug: 'openai/gpt-4o-mini', label: 'GPT-4o mini' },
   deepseek: { slug: 'deepseek/deepseek-v4-flash', label: 'DeepSeek V4 Flash' },
 }
 const DEFAULT_MODEL_KEY = 'flash'
