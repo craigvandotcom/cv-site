@@ -141,7 +141,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
         // Optional OpenRouter attribution headers.
         'HTTP-Referer': 'https://craigvan.com',
-        'X-Title': "Craig Van Heerden — AI & Innovation CV",
+        'X-Title': 'Craig Van Heerden - AI and Innovation CV',
       },
       body: JSON.stringify({
         model: MODEL,
