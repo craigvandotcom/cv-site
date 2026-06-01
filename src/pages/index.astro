@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 
 const title = 'Craig Van'
-const description = 'Engineer building systems for eating, moving, and thinking clearly — shipped solo with AI agents.'
+const description = 'Engineer building software with AI agent systems he designs — shipped solo as real products, currently a health portfolio.'
 const image = '/og-home.png'
 ---
 
@@ -11,16 +11,16 @@ const image = '/og-home.png'
 
     <!-- Hero -->
     <section class="mb-24 animate-fade-up">
-      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">eat <span class="brand-dot">·</span> move <span class="brand-dot">·</span> meditate</p>
+      <p class="mb-6 font-mono text-xs tracking-[0.25em] text-muted uppercase">engineer <span class="brand-dot">·</span> ai systems <span class="brand-dot">·</span> builder</p>
       <h1 class="mb-6 max-w-2xl text-4xl font-light leading-[1.08] tracking-[-0.04em] text-accent md:text-[3.5rem]">
-        I'm an engineer who got obsessed with<br class="hidden md:inline" /> how the human body actually works.
+        I build systems —<br class="hidden md:inline" /> and the AI agents that ship them.
       </h1>
       <p class="max-w-xl text-lg leading-relaxed text-fg/78">
-        Most health advice is noise. So I built systems instead.
-        Systems I use every day. Systems that compound.
-        Now I share what works.
+        One engineer, a swarm of AI agents I design. I build the agentic
+        engineering system, then use it to ship real products — currently a
+        health portfolio: eat, move, meditate.
       </p>
-      <p class="mt-8 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Weekly cast · 10 min read or listen · 1,000+ readers</p>
+      <p class="mt-8 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">4 apps · 3 open-source tools · one engineer</p>
     </section>
 
     <!-- About -->
@@ -28,38 +28,68 @@ const image = '/og-home.png'
       <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">About</h2>
       <div class="space-y-4 text-fg/80 leading-[1.8]">
         <p>
-          I'm Craig. Based in Europe, background in engineering.
-          I spent years reverse-engineering how eating, moving, and stillness
-          actually affect the body. Then I turned what worked into frameworks
-          anyone can use.
+          I'm Craig — an engineer based in Europe. Day to day I work in
+          in-person payments at Adyen; the rest of the time I build software
+          with AI agent systems I design myself, which is how one person
+          ships at the pace of a small team.
         </p>
         <p>
-          No hacks. No motivation required. Just honest systems
-          that work on the days you don't feel like it.
-        </p>
-        <p>
-          I build the apps and tools myself — one engineer, a swarm of AI agents
-          I design. That's how the systems ship as fast as they do.
+          That building turned personal. I spent years reverse-engineering how
+          eating, moving, and stillness actually affect the body, then shipped
+          what worked as real apps. No hacks, no motivation required — just
+          honest systems that hold up on the days you don't feel like it.
         </p>
       </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter-panel mb-24 animate-fade-up delay-2 rounded-[1.25rem] px-6 py-7 md:px-8">
-      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Weekly cast</h2>
-      <p class="mb-3 max-w-xl text-fg/80 leading-[1.8]">
-        One email a week, one idea at a time. On eating, moving,
-        and thinking better. Short, useful, no upsells.
+    <!-- Engineering -->
+    <section class="mb-24 animate-fade-up delay-2">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Engineering</h2>
+      <p class="mb-8 max-w-xl text-fg/80 leading-[1.8]">
+        Shipping this much solo takes leverage: I run a swarm of AI agents
+        through an agentic engineering system I built — coordinated planning,
+        review, test, and ship loops. Some of the tooling is open source.
       </p>
-      <p class="mb-8 text-sm text-muted">Join 1,000+ readers building calmer, more reliable health systems.</p>
-      <div data-supascribe-embed-id="168170608203" data-supascribe-subscribe></div>
+      <div class="divide-y divide-border border-y border-border">
+        <a href="https://github.com/craigvandotcom/agent-compounds" target="_blank" rel="noopener" class="project-row group block py-6">
+          <div class="flex items-start justify-between gap-6">
+            <div>
+              <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Agentic toolkit</p>
+              <h3 class="mb-2 text-base font-medium text-accent">Agent Compounds</h3>
+              <p class="text-sm leading-relaxed text-muted">Commands, skills, and sub-agents for compound agentic workflows in Claude Code. Drop into <code>.claude/</code> and go.</p>
+            </div>
+            <span class="mt-0.5 text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5">&#8599;</span>
+          </div>
+        </a>
+        <a href="https://github.com/craigvandotcom/openrouter-cli" target="_blank" rel="noopener" class="project-row group block py-6">
+          <div class="flex items-start justify-between gap-6">
+            <div>
+              <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Multi-model CLI</p>
+              <h3 class="mb-2 text-base font-medium text-accent">openrouter-cli</h3>
+              <p class="text-sm leading-relaxed text-muted">One scriptable interface to 400+ models via OpenRouter — built for AI agents to consume.</p>
+            </div>
+            <span class="mt-0.5 text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5">&#8599;</span>
+          </div>
+        </a>
+        <a href="https://github.com/craigvandotcom/vitest-affected" target="_blank" rel="noopener" class="project-row group block py-6">
+          <div class="flex items-start justify-between gap-6">
+            <div>
+              <p class="mb-3 font-mono text-[11px] tracking-[0.22em] text-muted uppercase">Test selection</p>
+              <h3 class="mb-2 text-base font-medium text-accent">vitest-affected</h3>
+              <p class="text-sm leading-relaxed text-muted">Dependency-graph test selection for Vitest — skip irrelevant tests and keep CI fast.</p>
+            </div>
+            <span class="mt-0.5 text-muted/40 transition-all duration-300 group-hover:text-accent/60 group-hover:translate-x-0.5">&#8599;</span>
+          </div>
+        </a>
+      </div>
+      <p class="mt-6 text-sm">
+        <a href="https://github.com/craigvandotcom" target="_blank" rel="noopener" class="arrow-link text-accent transition-colors duration-300 hover:text-accent">More on GitHub</a>
+      </p>
     </section>
-
-    <script is:inline async src="https://js.supascribe.com/v1/loader/VaNM8pdlJAboZzPXnDmwNXMbiUr2.js"></script>
 
     <!-- Projects -->
     <section class="mb-24 animate-fade-up delay-3">
-      <h2 class="mb-8 font-mono text-xs tracking-[0.25em] text-muted uppercase">Projects</h2>
+      <h2 class="mb-8 font-mono text-xs tracking-[0.25em] text-muted uppercase">Products</h2>
       <div class="divide-y divide-border border-y border-border">
         <a href="https://bodycompass.app" target="_blank" rel="noopener" class="project-row group block py-6">
           <div class="flex items-start justify-between gap-6">
@@ -84,8 +114,21 @@ const image = '/og-home.png'
       </div>
     </section>
 
+    <!-- Newsletter -->
+    <section class="newsletter-panel mb-24 animate-fade-up delay-4 rounded-[1.25rem] px-6 py-7 md:px-8">
+      <h2 class="mb-5 font-mono text-xs tracking-[0.25em] text-muted uppercase">Weekly cast</h2>
+      <p class="mb-3 max-w-xl text-fg/80 leading-[1.8]">
+        One email a week, one idea at a time. On eating, moving,
+        and thinking better. Short, useful, no upsells.
+      </p>
+      <p class="mb-8 text-sm text-muted">Join 1,000+ readers building calmer, more reliable health systems.</p>
+      <div data-supascribe-embed-id="168170608203" data-supascribe-subscribe></div>
+    </section>
+
+    <script is:inline async src="https://js.supascribe.com/v1/loader/VaNM8pdlJAboZzPXnDmwNXMbiUr2.js"></script>
+
     <!-- Footer -->
-    <footer class="animate-fade-up delay-4 border-t section-fade pt-10">
+    <footer class="animate-fade-up delay-5 border-t section-fade pt-10">
       <div class="flex flex-col gap-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <span>&copy; {new Date().getFullYear()} Craig Van</span>
         <div class="flex gap-6">
