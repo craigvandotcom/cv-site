@@ -957,12 +957,45 @@
         transform: rotate(135deg);
       }
 
-      .loop-card .tooltip {
+      /* mobile: examples collapse by default and reveal on TAP as clean inline
+         text — no floating box, border, shadow, or arrow (those caused the
+         overlapping-box rendering). Height animates so the card grows. */
+      .loop-card {
+        cursor: pointer;
+      }
+
+      /* collapsed by default — and hover/focus must NOT reveal on touch (the
+         card is focusable), so neutralize the desktop reveal here. Only the
+         JS-toggled .is-open class opens an example on mobile. */
+      .loop-card .tooltip,
+      .loop-card:hover .tooltip,
+      .loop-card:focus-within .tooltip {
         position: static;
         width: auto;
-        margin-top: 8px;
-        opacity: 1;
+        max-height: 0;
+        margin: 0;
+        padding: 0 2px;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        opacity: 0;
+        overflow: hidden;
         transform: none;
+        pointer-events: none;
+        transition: max-height 260ms var(--ease), opacity 200ms var(--ease),
+                    margin 260ms var(--ease), padding 260ms var(--ease);
+      }
+
+      .loop-card .tooltip::after {
+        display: none;
+      }
+
+      .loop-card.is-open .tooltip {
+        max-height: 360px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--rule);
+        opacity: 1;
         pointer-events: auto;
       }
     }
@@ -1914,6 +1947,40 @@
           if (chip && chip.dataset.q && !busy) ask(chip.dataset.q);
         });
       }
+    })();
+  </script>
+
+  <script>
+    // Innovation loop: on mobile, examples are tap-to-reveal (desktop uses
+    // hover via CSS). Toggle .is-open on tap; only active under the mobile
+    // breakpoint so it never fights desktop hover.
+    (function () {
+      var mobile = window.matchMedia("(max-width: 860px)");
+      var cards = document.querySelectorAll(".innovation-loop .loop-card");
+
+      cards.forEach(function (card) {
+        card.addEventListener("click", function () {
+          if (!mobile.matches) return;
+          var open = card.classList.toggle("is-open");
+          card.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+        card.addEventListener("keydown", function (e) {
+          if (mobile.matches && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+
+      // Collapse any open card when leaving the mobile breakpoint.
+      mobile.addEventListener("change", function (e) {
+        if (!e.matches) {
+          cards.forEach(function (card) {
+            card.classList.remove("is-open");
+            card.removeAttribute("aria-expanded");
+          });
+        }
+      });
     })();
   </script>
 </body>
