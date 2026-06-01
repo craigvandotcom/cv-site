@@ -1165,6 +1165,7 @@
       font-family: inherit;
       font-size: 13px;
       line-height: 1;
+      white-space: nowrap;
     }
 
     .cvchat-pill {
@@ -1318,7 +1319,8 @@
       background: transparent;
       color: var(--ink);
       font-family: inherit;
-      font-size: 15px;
+      /* 16px keeps iOS Safari from auto-zooming the page on focus */
+      font-size: 16px;
       line-height: 1.5;
       resize: none;
       outline: none;
@@ -1389,6 +1391,25 @@
     .cvchat-send:disabled {
       opacity: 0.4;
       cursor: default;
+    }
+
+    /* phones: give the textarea the full width and drop the controls (model +
+       send) onto their own row beneath it, so the input isn't squeezed. */
+    @media (max-width: 560px) {
+      .cvchat-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 12px 14px;
+      }
+
+      .cvchat-controls {
+        justify-content: space-between;
+      }
+
+      .cvchat-model {
+        flex: 1;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
