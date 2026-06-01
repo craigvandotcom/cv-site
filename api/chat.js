@@ -17,7 +17,7 @@ const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions'
 const MODELS = {
   flash: { slug: 'google/gemini-3-flash-preview', label: 'Gemini 3 Flash' },
   gpt: { slug: 'openai/gpt-5-mini', label: 'GPT-5 mini' },
-  llama: { slug: 'meta-llama/llama-3.3-70b-instruct', label: 'Llama 3.3 70B' },
+  deepseek: { slug: 'deepseek/deepseek-v4-flash', label: 'DeepSeek V4 Flash' },
 }
 const DEFAULT_MODEL_KEY = 'flash'
 
@@ -29,7 +29,7 @@ function resolveModel(key) {
 }
 
 const MAX_QUESTION_CHARS = 600
-const MAX_OUTPUT_TOKENS = 500
+const MAX_OUTPUT_TOKENS = 700
 
 // Best-effort, in-memory rate limit. Resets on cold start (acceptable for a
 // low-traffic CV page) — upgrade to Vercel KV / Upstash if real abuse appears.
@@ -206,6 +206,11 @@ export default async function handler(req, res) {
         model: model,
         max_tokens: MAX_OUTPUT_TOKENS,
         temperature: 0.3,
+        // Disable reasoning across all models (OpenRouter unified param). CV Q&A
+        // wants fast, direct answers — and on reasoning models like GPT-5 mini,
+        // hidden reasoning tokens otherwise eat the whole max_tokens budget and
+        // leave the visible answer empty/truncated. No-op for non-reasoning models.
+        reasoning: { enabled: false },
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: question },
