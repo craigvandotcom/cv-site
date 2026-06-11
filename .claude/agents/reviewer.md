@@ -1,1 +1,0 @@
-../../../agent-compounds/agents/reviewer.md
