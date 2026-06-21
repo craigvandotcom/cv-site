@@ -1,0 +1,1 @@
+../../../agent-compounds/agents/browser-tester.md
