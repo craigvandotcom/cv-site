@@ -11,5 +11,9 @@
       }
     ]
   },
-  "skillListingBudgetFraction": 0.02
+  "skillListingBudgetFraction": 0.02,
+  "env": {
+    "GIT_IDENTITY_ENABLED": "1",
+    "AGENT_NAME": "FoggyCreek"
+  }
 }
