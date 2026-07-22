@@ -1,0 +1,1 @@
+../../../agent-compounds/agents/device-tester.md
