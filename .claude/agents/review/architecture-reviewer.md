@@ -1,0 +1,1 @@
+../../../../agent-compounds/agents/review/architecture-reviewer.md
