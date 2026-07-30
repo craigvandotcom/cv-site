@@ -32,6 +32,17 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "mcp__qmd__get|mcp__qmd__multi_get|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 $HOME/Repos/infrastructure/tools/src/lib/activity_logger.py"
+          }
+        ]
+      }
     ]
   },
   "skillListingBudgetFraction": 0.02,
