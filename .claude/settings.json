@@ -10,6 +10,28 @@
           }
         ]
       }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/Repos/neometa/software/agent-compounds/hooks/trauma_guard.py",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/Repos/neometa/software/agent-compounds/hooks/skill-edit-guard.py",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "skillListingBudgetFraction": 0.02,
