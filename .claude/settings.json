@@ -9,6 +9,14 @@
             "command": "python3 $HOME/Repos/.claude/hooks/memory-retrieval.py"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat $HOME/Repos/neometa/software/agent-compounds/hooks/delegation-reminder.md"
+          }
+        ]
       }
     ],
     "PreToolUse": [
