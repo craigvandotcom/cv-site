@@ -17,6 +17,14 @@
             "command": "cat $HOME/Repos/neometa/software/agent-compounds/hooks/delegation-reminder.md"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "for f in \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/delegation-reminder.md \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/workflow-reminder.md; do [ -f \"$f\" ] && cat \"$f\"; done; exit 0"
+          }
+        ]
       }
     ],
     "PreToolUse": [
