@@ -47,6 +47,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/Repos/neometa/software/agent-compounds/hooks/bead-capture-guard.py",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "PostToolUse": [
