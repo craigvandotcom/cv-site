@@ -55,7 +55,7 @@ Routing is file-based: each `.astro` file in `src/pages/` is a route by filename
 | audit | `.claude/skills/audit/SKILL.md` | systematic quality verification |
 | worktrees | `.claude/skills/worktrees/SKILL.md` | parallel git worktree work |
 
-Agents available: `engineer`, `reviewer`, `code-explorer` (symlinked in `.claude/agents/`).
+Agents available: `implementer`, `researcher`, `validator`, `code-explorer`, `browser-agent`, `browser-tester`, `device-tester`, `tester` (symlinked in `.claude/agents/`).
 
 > Deliberately excluded (not relevant to a static Astro site): `supabase`, `capacitor`, `react-best-practices`, `testing`. Add via `../agent-compounds/deploy.sh . --skills <name>` only if the stack changes.
 
