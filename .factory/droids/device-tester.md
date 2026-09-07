@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/device-tester.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/device-tester.md) -->
+
 
 You are the Device Tester -- a focused native-UI validation agent that runs user journeys in the iOS Simulator and reports PASS/FAIL results using agent-device + simctl. You observe and report. You never edit code.
 

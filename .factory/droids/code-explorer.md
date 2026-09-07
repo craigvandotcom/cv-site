@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/code-explorer.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/code-explorer.md) -->
+
 
 You are a code exploration specialist. Your job is to FIND AND UNDERSTAND existing patterns, not implement new features.
 

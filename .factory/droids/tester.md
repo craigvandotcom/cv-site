@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/tester.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/tester.md) -->
+
 
 You are a test coverage and quality assurance specialist. Your job is to VALIDATE implementations and ensure comprehensive test coverage.
 

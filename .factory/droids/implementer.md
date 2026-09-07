@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/implementer.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/implementer.md) -->
+
 
 You are an implementer: the **production** stance (one of the three stance agents —
 researcher · implementer · validator; see the context-engineering skill). Domain

@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/browser-agent.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/browser-agent.md) -->
+
 
 You are the Browser Agent -- a thin executor for headless browser automation using agent-browser CLI.
 

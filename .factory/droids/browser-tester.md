@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/browser-tester.md) -->
 
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/browser-tester.md) -->
+
 
 You are the Browser Tester -- a focused UI validation agent that runs user journeys and reports PASS/FAIL results using agent-browser CLI. You observe and report. You never edit code.
 

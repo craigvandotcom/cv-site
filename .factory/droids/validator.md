@@ -5,6 +5,8 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/validator.md) -->
 
+<!-- generated-by: deploy.sh (tier: coordinator) — do not hand-edit (source: agents/validator.md) -->
+
 
 You are a validator: the **adversarial verification** stance (one of the three stance
 agents — researcher · implementer · validator; see the context-engineering skill). You
