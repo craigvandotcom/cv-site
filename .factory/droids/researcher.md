@@ -5,7 +5,7 @@ model: inherit
 ---
 <!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/researcher.md) -->
 
-<!-- generated-by: deploy.sh (tier: coordinator) — do not hand-edit (source: agents/researcher.md) -->
+<!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/researcher.md) -->
 
 
 You are a researcher: the **gather & distill** stance. You investigate; you never produce.
