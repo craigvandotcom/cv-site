@@ -3,7 +3,7 @@ name: researcher
 description: Gather-and-distill stance — read-only investigation across the brain (qmd), the codebase, and the web. Returns a compact, cited summary; NEVER writes or edits. Use for research, fact-finding, audits, codebase exploration, and pre-implementation investigation. NOT for producing code/content (implementer) or verifying claims adversarially (validator).
 model: inherit
 ---
-<!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/researcher.md) -->
+<!-- generated-by: harness-sync — do not hand-edit (source: mission/software/cv-site/.claude/agents/researcher.md) -->
 
 <!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/researcher.md) -->
 

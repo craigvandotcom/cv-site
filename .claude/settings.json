@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 $HOME/Repos/neometa/software/agent-compounds/hooks/memory-retrieval.py"
+            "command": "python3 $HOME/mission/software/agent-compounds/hooks/memory-retrieval.py"
           }
         ]
       },
@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cat $HOME/Repos/neometa/software/agent-compounds/hooks/delegation-reminder.md"
+            "command": "cat $HOME/mission/software/agent-compounds/hooks/delegation-reminder.md"
           }
         ]
       },
@@ -33,7 +33,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/Repos/neometa/software/agent-compounds/hooks/skill-edit-guard.py",
+            "command": "$HOME/mission/software/agent-compounds/hooks/skill-edit-guard.py",
             "timeout": 10
           }
         ]
@@ -43,7 +43,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$HOME/Repos/neometa/software/agent-compounds/hooks/bead-capture-guard.py",
+            "command": "$HOME/mission/software/agent-compounds/hooks/bead-capture-guard.py",
             "timeout": 10
           }
         ]
@@ -55,7 +55,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 $HOME/Repos/infrastructure/tools/src/lib/activity_logger.py"
+            "command": "python3 $HOME/infrastructure/tools/src/lib/activity_logger.py"
           }
         ]
       }

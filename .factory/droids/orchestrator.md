@@ -3,7 +3,7 @@ name: orchestrator
 description: Fleet-conductor stance — plans, sequences, delegates, holds decisions and batch boundaries for a long-horizon coordination session. Spawns when the coordinating work itself needs a dedicated agent (swarm coordinators, pipeline conductors). NOT for executing defined steps (implementer), investigation (researcher), or verdicts (validator).
 model: inherit
 ---
-<!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/orchestrator.md) -->
+<!-- generated-by: harness-sync — do not hand-edit (source: mission/software/cv-site/.claude/agents/orchestrator.md) -->
 
 <!-- generated-by: deploy.sh (tier: orchestrator) — do not hand-edit (source: agents/orchestrator.md) -->
 

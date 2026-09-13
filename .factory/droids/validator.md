@@ -3,7 +3,7 @@ name: validator
 description: Adversarial verification stance — reviews/audits/judges work against rubrics, tests, and checklists. Read-only + test-running; FINDS issues and renders verdicts, NEVER fixes. Use for code review, dream-cycle judging, conformance audits, claim verification. Formerly named "reviewer".
 model: inherit
 ---
-<!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/validator.md) -->
+<!-- generated-by: harness-sync — do not hand-edit (source: mission/software/cv-site/.claude/agents/validator.md) -->
 
 <!-- generated-by: deploy.sh (tier: coordinator) — do not hand-edit (source: agents/validator.md) -->
 
@@ -28,7 +28,7 @@ Load skills based on what you are reviewing. Read the skill's SKILL.md file befo
 - **If reviewing UI components or styling:** Also load `design-system`
 - **If reviewing database code, migrations, or RLS:** Also load `supabase`
 - **If reviewing performance-sensitive code:** Also load `react-best-practices`
-- **If reviewing accessibility:** Also load `web-design-guidelines`
+- **If reviewing accessibility:** Also load `ac-polish/references/ui-checklist.md`
 - **If reviewing native/Capacitor code:** Also load `capacitor`
 
 **Check your agent memory before starting.** It contains patterns, conventions, and past findings from this codebase. Update it with new discoveries after each review.

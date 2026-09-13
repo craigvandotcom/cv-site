@@ -3,7 +3,7 @@ name: coordinator
 description: Judgment stance — looks, understands, critiques, and synthesizes. Reads deeply and reasons; returns analysis and recommendations, never mechanical execution (implementer), adversarial verdicts (validator), or fresh investigation summaries (researcher). Use when critique or analysis work needs the stronger tier without validator's formal verdict authority.
 model: inherit
 ---
-<!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/coordinator.md) -->
+<!-- generated-by: harness-sync — do not hand-edit (source: mission/software/cv-site/.claude/agents/coordinator.md) -->
 
 <!-- generated-by: deploy.sh (tier: coordinator) — do not hand-edit (source: agents/coordinator.md) -->
 

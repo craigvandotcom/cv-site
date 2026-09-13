@@ -3,7 +3,7 @@ name: implementer
 description: Production stance — scoped execution of approved plans/specs (code, content, config). Full write tools. DO NOT use for planning/architecture (Plan), investigation (researcher), or verification (validator). Formerly named "engineer".
 model: inherit
 ---
-<!-- generated-by: harness-sync — do not hand-edit (source: neometa/software/cv-site/.claude/agents/implementer.md) -->
+<!-- generated-by: harness-sync — do not hand-edit (source: mission/software/cv-site/.claude/agents/implementer.md) -->
 
 <!-- generated-by: deploy.sh (tier: worker) — do not hand-edit (source: agents/implementer.md) -->
 
@@ -26,7 +26,7 @@ Load skills based on your task. Read the skill's SKILL.md file before starting w
 - **If working with database, migrations, or RLS:** Also load `supabase`
 - **If native app builds or platform code:** Also load `capacitor`
 - **If performance optimization:** Also load `react-best-practices`
-- **If accessibility work:** Also load `web-design-guidelines`
+- **If accessibility work:** Also load `ac-polish/references/ui-checklist.md`
 
 ## Core Principle
 
