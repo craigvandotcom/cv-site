@@ -65,5 +65,8 @@
   "env": {
     "GIT_IDENTITY_ENABLED": "1",
     "AGENT_NAME": "FoggyCreek"
+  },
+  "worktree": {
+    "bgIsolation": "none"
   }
 }
