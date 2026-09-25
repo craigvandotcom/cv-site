@@ -1,7 +1,7 @@
 ---
 name: implementer
 description: Production stance — scoped execution of approved plans/specs (code, content, config). Full write tools. DO NOT use for planning/architecture (Plan), investigation (researcher), or verification (validator). Formerly named "engineer".
-tools: Read, Write, Edit, Bash, Grep, Glob
+tools: Read, Write, Edit, Bash, Grep, Glob, mcp__mcp-agent-mail__macro_start_session, mcp__mcp-agent-mail__file_reservation_paths, mcp__mcp-agent-mail__renew_file_reservations, mcp__mcp-agent-mail__release_file_reservations, mcp__mcp-agent-mail__send_message, mcp__mcp-agent-mail__deregister_agent
 tier: worker
 permissionMode: acceptEdits
 model: sonnet
@@ -23,10 +23,10 @@ Read `AGENTS.md` at the project root for project context and skill routing.
 Load skills based on your task. Read the skill's SKILL.md file before starting work.
 
 - **If writing or fixing tests:** Load `testing`
-- **If building UI components or styling:** Also load `design-system`
-- **If working with database, migrations, or RLS:** Also load `supabase`
-- **If native app builds or platform code:** Also load `capacitor`
-- **If performance optimization:** Also load `react-best-practices`
+- **If building UI components or styling:** Also load the skill matching your design system/stack
+- **If working with database, migrations, or RLS:** Also load the skill matching your database stack (e.g. `supabase`)
+- **If native app builds or platform code:** Also load the skill matching your native stack (e.g. `capacitor`)
+- **If performance optimization:** Also load the skill matching your framework's perf doctrine
 - **If accessibility work:** Also load `ac-polish/references/ui-checklist.md`
 
 ## Core Principle
@@ -48,7 +48,7 @@ Load skills based on your task. Read the skill's SKILL.md file before starting w
 - Make architectural decisions
 - Change the plan mid-implementation
 - Add features not in the spec
-- Research patterns (code-explorer already did that)
+- Research patterns (the researcher stance already did that)
 
 ## Input You Receive
 
@@ -112,7 +112,7 @@ try {
 
 ## Local Verification
 
-Before reporting "done", run:
+Before reporting "done", run your project's equivalents of (example: a pnpm/Next.js stack):
 
 ```bash
 pnpm type-check  # 0 errors
