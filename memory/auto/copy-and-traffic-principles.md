@@ -15,3 +15,5 @@ metadata:
   workshop, apply funnel). The homepage exists but is not the conversion path.
 - Course-platform decision (2026-01): custom TypeScript system built into the site, not
   an external platform; placeholder-first, launch before content completeness.
+
+Ruling (dream, 2026-09-25): Keep, defer verification.
