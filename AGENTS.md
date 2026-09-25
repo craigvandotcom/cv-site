@@ -1,5 +1,7 @@
 # AGENTS.md — Subagent Context
 
+Agent Mail project key: `cv-site`
+
 > Read by subagents spawned via agent-compounds flywheel commands (`/ac/*`, `/jef/*`).
 > Tooling deployed from `../agent-compounds` (symlinked into `.claude/`).
 
