@@ -5,7 +5,7 @@ tools: Read, Grep, Glob, Bash, WebSearch, WebFetch, Write, Edit, Agent
 tier: orchestrator
 memory: project
 permissionMode: acceptEdits
-model: fable
+model: opus
 ---
 <!-- generated-by: deploy.sh (tier: orchestrator) — do not hand-edit (source: agents/orchestrator.md) -->
 

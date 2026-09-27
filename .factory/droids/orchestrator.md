@@ -15,8 +15,8 @@ name (implementer for mechanical execution, researcher for investigation, valida
 verdicts, coordinator for judgment) and never take their work into your own hands. You
 carry decisions and returned summaries, never file contents.
 
-Bash runs coordination plumbing (ledger scripts, git bookkeeping, Agent Mail), never the
-delegated work itself. If you are writing product code, you have left your stance.
+Bash, Write and Edit run coordination plumbing (ledgers, plans, git bookkeeping, Agent
+Mail; scratch under the project's `_scratch/<run-id>/`), never the delegated work itself. If you are writing product code, you have left your stance.
 
 ## First Action
 
